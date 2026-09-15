@@ -73,15 +73,32 @@ def inline(html: str) -> str:
     css = css.replace("../fonts/", "fonts/")
     js = (STATIC / "js" / "site.js").read_text(encoding="utf-8")
 
-    html, n_css = LINK_RE.subn("\n<style>\n" + css + "\n</style>", html)
+    # The replacement must be a function, not a string: re.sub expands escape
+    # sequences in a string replacement, so a JS literal like lines.join("\n")
+    # would arrive as a real newline inside the quotes and break the script.
+    html, n_css = LINK_RE.subn(lambda _m: "\n<style>\n" + css + "\n</style>", html)
+
+    # `defer` is ignored on an inline script, so the tag cannot simply be
+    # replaced where it sits in <head> — it would run before the DOM exists and
+    # every querySelector would return null. Drop it there, re-insert at the end
+    # of <body>, which gives the same "after parsing" timing.
     # The 404 page deliberately ships no script, so a missing match is fine here.
-    html, _ = SCRIPT_RE.subn("\n<script>\n" + js + "\n</script>", html)
+    html, n_js = SCRIPT_RE.subn("", html)
+    if n_js:
+        html = html.replace("</body>", "<script>\n" + js + "\n</script>\n</body>", 1)
 
     if not n_css:
         raise SystemExit(
             "Could not find the stylesheet tag to inline. "
             "Did the asset paths in the templates change?"
         )
+
+    # A broken inline script fails silently: the page still renders, but every
+    # button is dead. Assert the assets survived verbatim rather than trusting it.
+    if css not in html:
+        raise SystemExit("Inlined CSS does not match static/css/site.css verbatim.")
+    if n_js and js not in html:
+        raise SystemExit("Inlined JS does not match static/js/site.js verbatim.")
     return html
 
 
