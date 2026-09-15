@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Superseded build directory — the static build now lives in docs/ so that
+# GitHub Pages can serve it. See freeze.py.
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

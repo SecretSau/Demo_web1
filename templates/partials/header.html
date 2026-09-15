@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="wrap header-in">
+
+    <a class="brand" href="#top" aria-label="{{ org.name }} — home">
+      <svg class="brand-mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <defs>
+          <linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" style="stop-color:var(--gold-hi)"/>
+            <stop offset="1" style="stop-color:var(--rose)"/>
+          </linearGradient>
+        </defs>
+        <path d="M17 1.5 32.5 10v14L17 32.5 1.5 24V10z" fill="none" stroke="var(--came)" stroke-width="1"/>
+        <path d="M17 7v20M10 14h14" stroke="url(#bm)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <path d="M17 7l5 5M17 7l-5 5" stroke="url(#bm)" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".5"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">Jesus Oneness</span>
+        <span class="brand-sub">Love Mission</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {% for item in nav %}<a href="{{ item.href }}">{{ item.label }}</a>{% endfor %}
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon-moon" width="17" height="17" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="icon-sun" width="17" height="17" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-solid" href="#give">Give<svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="burger" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg width="21" height="21" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <button class="drawer-close" type="button" aria-label="Close menu">
+      <svg width="22" height="22" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
+  {% for item in nav %}<a class="drawer-link" href="{{ item.href }}">{{ item.label }}</a>{% endfor %}
+  <a class="btn btn-solid" href="#give">Give to the mission<svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>

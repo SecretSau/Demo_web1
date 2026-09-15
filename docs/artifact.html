@@ -1,0 +1,3327 @@
+<title>Jesus Oneness Love Mission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* ==========================================================================
+   Jesus Oneness Love Mission
+   Design system: "stained glass, rendered"
+   - Faceted (chamfered) panels, hairline gold "came" lines, transmitted light.
+   - Dark-first. The bare :root block carries the full dark palette; the light
+     palette overrides it for prefers-color-scheme:light and [data-theme=light].
+   ========================================================================== */
+
+/* ---------- Tokens: dark (default world) ---------- */
+:root {
+  --ground:        #0B0D1A;
+  --ground-deep:   #070813;
+  --ground-lift:   #10132A;
+  --surface:       #12142B;
+  --surface-soft:  rgba(255, 255, 255, 0.045);
+  --surface-hi:    rgba(255, 255, 255, 0.075);
+
+  --came:          rgba(227, 180, 74, 0.26);   /* the leaded line */
+  --came-soft:     rgba(227, 180, 74, 0.12);
+  --hairline:      rgba(255, 255, 255, 0.09);
+
+  --ink:           #F2EDE3;
+  --ink-soft:      #C9C8D8;
+  --ink-muted:     #8E93B4;                     /* grey, biased to the indigo */
+
+  --gold:          #E3B44A;
+  --gold-hi:       #FFDA8F;
+  --gold-ink:      #0B0D1A;
+  --rose:          #D4746A;
+  --azure:         #6E8BD8;
+
+  --glow:          rgba(227, 180, 74, 0.30);
+  --shadow:        0 24px 60px -24px rgba(0, 0, 0, 0.8);
+  --veil:          rgba(7, 8, 19, 0.72);
+
+  --pane:          var(--gold);
+  --pane-dim:      rgba(227, 180, 74, 0.16);
+
+  /* Type */
+  --display: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --body: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.10vw, 0.85rem);
+  --step-0:  clamp(0.95rem, 0.92rem + 0.16vw, 1.05rem);
+  --step-1:  clamp(1.12rem, 1.06rem + 0.32vw, 1.32rem);
+  --step-2:  clamp(1.38rem, 1.24rem + 0.68vw, 1.85rem);
+  --step-3:  clamp(1.72rem, 1.44rem + 1.36vw, 2.6rem);
+  --step-4:  clamp(2.15rem, 1.58rem + 2.70vw, 3.85rem);
+  --step-5:  clamp(2.8rem, 1.65rem + 5.10vw, 5.9rem);
+
+  /* Layout */
+  --gutter: clamp(1rem, 0.6rem + 2vw, 3.25rem);
+  --rail: 0px;
+  --measure: 62ch;
+  --chamfer: polygon(0 14px, 14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  --chamfer-sm: polygon(0 8px, 8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+
+  color-scheme: dark;
+}
+
+/* ---------- Tokens: light ("morning light through the window") ---------- */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ground:        #F4F2F6;
+    --ground-deep:   #EAE7EF;
+    --ground-lift:   #FFFFFF;
+    --surface:       #FFFFFF;
+    /* Light: the glass is white and lifts off the pale violet ground. */
+    --surface-soft:  rgba(255, 255, 255, 0.80);
+    --surface-hi:    #FFFFFF;
+
+    --came:          rgba(150, 105, 20, 0.42);
+    --came-soft:     rgba(150, 105, 20, 0.14);
+    --hairline:      rgba(22, 24, 46, 0.12);
+
+    --ink:           #16182E;
+    --ink-soft:      #3A3D57;
+    --ink-muted:     #6B6E8C;
+
+    --gold:          #96690F;
+    --gold-hi:       #7A5409;
+    --gold-ink:      #FFFFFF;
+    --rose:          #B0504A;
+    --azure:         #3E5BAE;
+
+    --glow:          rgba(150, 105, 20, 0.18);
+    --shadow:        0 22px 50px -26px rgba(22, 24, 46, 0.34);
+    --veil:          rgba(244, 242, 246, 0.78);
+
+    --pane:          var(--gold);
+    --pane-dim:      rgba(150, 105, 20, 0.12);
+
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --ground:        #F4F2F6;
+  --ground-deep:   #EAE7EF;
+  --ground-lift:   #FFFFFF;
+  --surface:       #FFFFFF;
+  /* Light: the glass is white and lifts off the pale violet ground. */
+  --surface-soft:  rgba(255, 255, 255, 0.80);
+  --surface-hi:    #FFFFFF;
+
+  --came:          rgba(150, 105, 20, 0.42);
+  --came-soft:     rgba(150, 105, 20, 0.14);
+  --hairline:      rgba(22, 24, 46, 0.12);
+
+  --ink:           #16182E;
+  --ink-soft:      #3A3D57;
+  --ink-muted:     #6B6E8C;
+
+  --gold:          #96690F;
+  --gold-hi:       #7A5409;
+  --gold-ink:      #FFFFFF;
+  --rose:          #B0504A;
+  --azure:         #3E5BAE;
+
+  --glow:          rgba(150, 105, 20, 0.18);
+  --shadow:        0 22px 50px -26px rgba(22, 24, 46, 0.34);
+  --veil:          rgba(244, 242, 246, 0.78);
+
+  --pane:          var(--gold);
+  --pane-dim:      rgba(150, 105, 20, 0.12);
+
+  color-scheme: light;
+}
+
+/* Pane hues — the three colours of glass. */
+.pane-gold  { --pane: var(--gold);  --pane-dim: var(--came-soft); }
+.pane-rose  { --pane: var(--rose);  --pane-dim: color-mix(in srgb, var(--rose) 16%, transparent); }
+.pane-azure { --pane: var(--azure); --pane-dim: color-mix(in srgb, var(--azure) 16%, transparent); }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  margin: 0;
+  font-variation-settings: "SOFT" 20, "WONK" 0;
+}
+
+p { margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+::selection { background: var(--gold); color: var(--gold-ink); }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--gold);
+  color: var(--gold-ink);
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* ---------- Layout primitives ---------- */
+.wrap {
+  width: min(1240px, 100%);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4rem, 2.6rem + 6vw, 8.5rem);
+}
+
+.section--tight { padding-block: clamp(3rem, 2rem + 4vw, 5.5rem); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.9rem;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+  opacity: 0.6;
+}
+
+.lede {
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  line-height: 1.55;
+}
+
+.body-text {
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 44rem;
+  margin-bottom: clamp(2.2rem, 1.6rem + 2vw, 3.6rem);
+}
+.section-head h2 { font-size: var(--step-3); }
+
+/* ---------- Chamfered glass panel ---------- */
+.glass {
+  position: relative;
+  background: var(--surface-soft);
+  clip-path: var(--chamfer);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+}
+
+/* 1px "came" line that follows the chamfer */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(150deg, var(--pane), var(--came-soft) 45%, transparent 75%);
+  clip-path: var(--chamfer);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+.glass--sm, .glass--sm::before { clip-path: var(--chamfer-sm); }
+
+.glass-in { position: relative; z-index: 1; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  --btn-bg: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-weight: 600;
+  font-size: var(--step-0);
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  position: relative;
+  clip-path: var(--chamfer-sm);
+  background: var(--btn-bg);
+  transition: transform 0.25s ease, box-shadow 0.35s ease, background 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-solid {
+  --btn-bg: var(--gold);
+  color: var(--gold-ink);
+  box-shadow: 0 0 0 0 var(--glow);
+}
+.btn-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -10px var(--glow);
+  --btn-bg: var(--gold-hi);
+}
+
+.btn-ghost {
+  color: var(--ink);
+  background: var(--surface-soft);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+.btn-ghost:hover {
+  background: var(--surface-hi);
+  box-shadow: inset 0 0 0 1px var(--came);
+  transform: translateY(-2px);
+}
+
+.btn .arrow { transition: transform 0.25s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--veil);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+.header.is-stuck { border-bottom-color: var(--came-soft); }
+
+.header-in {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 74px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  margin-right: auto;
+}
+.brand-mark { flex: none; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name {
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.nav { display: flex; gap: 0.35rem; }
+.nav a {
+  padding: 0.5rem 0.85rem;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  position: relative;
+  transition: color 0.25s ease;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.25rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav a:hover { color: var(--ink); }
+.nav a:hover::after { transform: scaleX(1); }
+
+.header-actions { display: flex; align-items: center; gap: 0.6rem; }
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  clip-path: var(--chamfer-sm);
+  background: var(--surface-soft);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  color: var(--ink-soft);
+  transition: color 0.25s ease, background 0.25s ease;
+}
+.theme-toggle:hover { color: var(--gold); background: var(--surface-hi); }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="dark"]) .theme-toggle .icon-moon { display: none; }
+}
+
+.burger { display: none; width: 38px; height: 38px; place-items: center; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .header-actions .btn-solid { display: none; }
+  .burger { display: grid; }
+}
+
+/* Mobile drawer */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--ground-deep);
+  padding: 1.25rem var(--gutter) 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow-y: auto;
+}
+.drawer.is-open { transform: translateY(0); }
+.drawer-top { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
+.drawer a.drawer-link {
+  font-family: var(--display);
+  font-size: var(--step-2);
+  text-decoration: none;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.drawer .btn { margin-top: 1.5rem; justify-content: center; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  padding-block: clamp(3.5rem, 2rem + 7vw, 7rem) clamp(3rem, 2rem + 3vw, 4.5rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Light through a window: layered gradient panes + drifting motes canvas. */
+.hero-light {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 130%;
+  z-index: -2;
+  background:
+    radial-gradient(60% 50% at 72% 8%, color-mix(in srgb, var(--gold) 26%, transparent), transparent 62%),
+    radial-gradient(48% 46% at 22% 22%, color-mix(in srgb, var(--azure) 22%, transparent), transparent 66%),
+    radial-gradient(52% 40% at 88% 58%, color-mix(in srgb, var(--rose) 16%, transparent), transparent 64%);
+  filter: blur(8px);
+  animation: drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2.5%, 2%, 0) scale(1.07); }
+}
+
+/* The leading: a faint diagonal lattice, like came between panes. */
+.hero-lattice {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(115deg, transparent 0 calc(50% - 0.5px), var(--came-soft) 50%, transparent calc(50% + 0.5px) 100%),
+    linear-gradient(65deg, transparent 0 calc(50% - 0.5px), var(--came-soft) 50%, transparent calc(50% + 0.5px) 100%);
+  background-size: 190px 190px, 240px 240px;
+  opacity: 0.5;
+  mask-image: radial-gradient(70% 60% at 50% 30%, #000, transparent 85%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 30%, #000, transparent 85%);
+}
+
+#motes {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: end;
+}
+@media (max-width: 950px) {
+  .hero-grid { grid-template-columns: 1fr; align-items: start; }
+}
+
+.hero-copy { display: flex; flex-direction: column; gap: 1.6rem; }
+
+.hero h1 {
+  font-size: var(--step-5);
+  font-variation-settings: "SOFT" 30, "WONK" 1, "opsz" 120;
+  letter-spacing: -0.035em;
+}
+.hero h1 .line { display: block; }
+.hero h1 .gild {
+  background: linear-gradient(96deg, var(--gold-hi), var(--gold) 45%, var(--rose));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  padding-right: 0.08em;
+}
+
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* Verse card sitting in the hero's right column */
+.verse-card { padding: 1.9rem 1.7rem; }
+.verse-mark {
+  font-family: var(--display);
+  font-size: 3.2rem;
+  line-height: 0.6;
+  color: var(--gold);
+  opacity: 0.55;
+  display: block;
+  margin-bottom: 0.65rem;
+}
+.verse-text {
+  font-family: var(--display);
+  font-size: var(--step-1);
+  font-style: italic;
+  line-height: 1.42;
+  color: var(--ink);
+}
+.verse-ref {
+  margin-top: 1.1rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Impact strip — visible in the first frame */
+.impact-strip {
+  margin-top: clamp(2.5rem, 1.6rem + 3vw, 4.5rem);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--came-soft);
+}
+@media (max-width: 760px) { .impact-strip { grid-template-columns: repeat(2, 1fr); } }
+
+.impact-item {
+  padding: 1.5rem 1.25rem 0.4rem;
+  border-right: 1px solid var(--came-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.impact-item:first-child { padding-left: 0; }
+.impact-item:last-child { border-right: 0; }
+@media (max-width: 760px) {
+  .impact-item:nth-child(2n) { border-right: 0; }
+  .impact-item:nth-child(odd) { padding-left: 0; }
+  .impact-item:nth-child(n + 3) { border-top: 1px solid var(--came-soft); }
+}
+
+.impact-value {
+  font-family: var(--display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.impact-label { font-size: 0.92rem; font-weight: 600; }
+.impact-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   Scripture marquee
+   ========================================================================== */
+.marquee {
+  border-block: 1px solid var(--came-soft);
+  background: var(--ground-deep);
+  padding-block: 1.15rem;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 3.5rem;
+  animation: slide 46s linear infinite;
+}
+@keyframes slide { to { transform: translateX(-50%); } }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.marquee-item .ref {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.marquee-star { color: var(--gold); opacity: 0.6; flex: none; }
+
+/* ==========================================================================
+   Mission + Vision
+   ========================================================================== */
+.duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 0.6rem + 1.4vw, 1.75rem);
+}
+@media (max-width: 860px) { .duo { grid-template-columns: 1fr; } }
+
+.creed {
+  padding: clamp(1.75rem, 1.2rem + 1.8vw, 2.9rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.creed:hover { transform: translateY(-4px); }
+.creed:hover::before { opacity: 1; }
+.creed h3 { font-size: var(--step-2); }
+.creed .body-text { max-width: none; }
+
+.creed-glyph { color: var(--pane); opacity: 0.9; }
+
+/* ==========================================================================
+   Ministries
+   ========================================================================== */
+.ministry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(0.85rem, 0.5rem + 1.2vw, 1.4rem);
+}
+
+.ministry {
+  padding: 1.75rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 15.5rem;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+.ministry::after {
+  content: "";
+  position: absolute;
+  inset: auto -30% -60% -30%;
+  height: 70%;
+  background: radial-gradient(60% 100% at 50% 100%, var(--pane), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.ministry:hover { transform: translateY(-5px); }
+.ministry:hover::after { opacity: 0.16; }
+.ministry:hover::before { opacity: 1; }
+
+.ministry-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.ministry-glyph { color: var(--pane); }
+.ministry-index {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+}
+.ministry h3 { font-size: var(--step-1); font-weight: 600; }
+.ministry p { color: var(--ink-soft); font-size: 0.94rem; flex: 1; }
+.ministry-meta {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pane);
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--hairline);
+}
+
+/* ==========================================================================
+   Our Work — filterable gallery
+   ========================================================================== */
+.work-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem);
+}
+.work-head .section-head { margin-bottom: 0; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.filter {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  clip-path: var(--chamfer-sm);
+  background: var(--surface-soft);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  color: var(--ink-muted);
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.filter:hover { color: var(--ink); background: var(--surface-hi); }
+.filter[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--gold-ink);
+  box-shadow: none;
+}
+
+/* Portrait grid — JOLM's source photographs are 320x640, so the tiles are
+   built tall rather than cropping a landscape frame out of them. */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(0.7rem, 0.45rem + 0.9vw, 1.1rem);
+}
+
+.work-card {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-width: 100%;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.work-card:hover { transform: translateY(-4px); }
+.work-card.is-hidden { display: none; }
+
+/* Designed placeholder tile: faceted glass in the card's pane colour. */
+.work-tile {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(140deg,
+      color-mix(in srgb, var(--pane) 34%, transparent),
+      color-mix(in srgb, var(--pane) 6%, transparent) 55%,
+      transparent),
+    repeating-linear-gradient(118deg,
+      var(--came-soft) 0 1px, transparent 1px 74px),
+    repeating-linear-gradient(62deg,
+      var(--came-soft) 0 1px, transparent 1px 92px),
+    var(--ground-lift);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.work-card:hover .work-tile { transform: scale(1.05); }
+
+/* A real photograph replaces the drawn glass entirely. */
+.work-tile.has-photo { background: var(--ground-lift); }
+.work-tile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+.work-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    color-mix(in srgb, var(--ground-deep) 92%, transparent) 0%,
+    color-mix(in srgb, var(--ground-deep) 55%, transparent) 38%,
+    transparent 72%);
+}
+
+/* Over a photograph the scrim is always dark and the caption always light —
+   a theme-linked colour would disappear on one of the two grounds. */
+.work-card:has(.has-photo) .work-shade {
+  background: linear-gradient(to top,
+    rgba(7, 8, 19, 0.92) 0%, rgba(7, 8, 19, 0.6) 34%, rgba(7, 8, 19, 0.05) 68%);
+}
+.work-card:has(.has-photo) h3 { color: #F6F2EA; }
+.work-card:has(.has-photo) .work-meta { color: rgba(246, 242, 234, 0.72); }
+.work-card:has(.has-photo) .work-cat { color: var(--gold-hi); }
+:root[data-theme="light"] .work-card:has(.has-photo) .work-cat { color: #F0C063; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .work-card:has(.has-photo) .work-cat { color: #F0C063; }
+}
+
+.work-body {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.25rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 2;
+}
+.work-cat {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pane);
+}
+.work-card h3 { font-size: var(--step-1); font-weight: 600; color: var(--ink); }
+.work-meta {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.work-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: currentColor; flex: none; }
+
+.work-plus {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: var(--veil);
+  clip-path: var(--chamfer-sm);
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+.work-card:hover .work-plus { opacity: 1; transform: translateY(0); }
+
+.work-note {
+  margin-top: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: color-mix(in srgb, var(--ground-deep) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox-panel {
+  width: min(640px, 100%);
+  padding: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--surface);
+  transform: translateY(14px) scale(0.98);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lightbox.is-open .lightbox-panel { transform: none; }
+.lightbox h3 { font-size: var(--step-2); }
+.lb-img {
+  width: 100%;
+  max-height: 46vh;
+  object-fit: cover;
+  object-position: center top;
+  clip-path: var(--chamfer-sm);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-muted);
+}
+.lightbox-close:hover { color: var(--ink); }
+
+/* ==========================================================================
+   Watch — YouTube facades. No third-party request until play is pressed.
+   ========================================================================== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: clamp(1rem, 0.6rem + 1.4vw, 1.75rem);
+}
+
+.video { padding: 0; overflow: hidden; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.video:hover { transform: translateY(-4px); }
+.video:hover::before { opacity: 1; }
+
+.video-play {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  background: var(--ground-lift);
+}
+.video-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.video-play:hover .video-poster { transform: scale(1.04); }
+
+.video-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 8, 19, 0.62), rgba(7, 8, 19, 0.08) 55%);
+  transition: background 0.35s ease;
+}
+.video-play:hover .video-scrim { background: linear-gradient(to top, rgba(7, 8, 19, 0.5), rgba(7, 8, 19, 0.02) 60%); }
+
+.video-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  clip-path: var(--chamfer-sm);
+  background: var(--gold);
+  color: var(--gold-ink);
+  padding-left: 3px;
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s ease;
+}
+.video-play:hover .video-btn { transform: translate(-50%, -50%) scale(1.09); background: var(--gold-hi); }
+
+.video-kind {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  clip-path: var(--chamfer-sm);
+  background: rgba(7, 8, 19, 0.72);
+  color: #F6F2EA;
+}
+
+.video-body { padding: 1.35rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.video-body h3 { font-size: var(--step-1); font-weight: 600; }
+.video-body p { color: var(--ink-soft); font-size: 0.94rem; }
+
+/* The real iframe, swapped in on click. */
+.video-frame { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; background: #000; }
+
+/* ==========================================================================
+   Give — bank transfer, no gateway
+   ========================================================================== */
+.give { background: var(--ground-deep); position: relative; overflow: hidden; }
+.give::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 90%;
+  background: radial-gradient(50% 60% at 50% 0%, var(--glow), transparent 70%);
+  pointer-events: none;
+}
+
+.give-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(1.5rem, 0.9rem + 3vw, 3.5rem);
+  align-items: start;
+}
+@media (max-width: 980px) { .give-grid { grid-template-columns: 1fr; } }
+
+/* -- Amount picker -- */
+.amounts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+.amount {
+  padding: 1rem 1.1rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.amount:hover { transform: translateY(-2px); background: var(--surface-hi); }
+.amount[aria-pressed="true"] { background: color-mix(in srgb, var(--gold) 16%, transparent); }
+.amount[aria-pressed="true"]::before { opacity: 1; background: var(--gold); }
+.amount-figure {
+  font-family: var(--display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.amount-cur { font-size: 0.62em; opacity: 0.65; margin-right: 0.12em; }
+.amount-hint {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.custom-row {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.6rem 0.55rem 1.1rem;
+}
+.custom-row label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  flex: none;
+}
+.custom-row input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 0.35rem 0;
+}
+.custom-row input::placeholder { color: var(--ink-muted); font-weight: 400; }
+.custom-row input:focus { outline: none; }
+.custom-row:focus-within::before { opacity: 1; background: var(--gold); }
+
+/* -- Live impact readout -- */
+.impact-readout {
+  margin-top: 1.4rem;
+  padding: 1.25rem 1.3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--gold) 9%, transparent);
+}
+.impact-readout .glyph { color: var(--gold); flex: none; margin-top: 0.15rem; }
+.impact-readout .txt { display: flex; flex-direction: column; gap: 0.2rem; }
+.impact-readout .k {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.impact-readout .v { font-size: 0.98rem; color: var(--ink); line-height: 1.45; }
+
+/* -- Reference code -- */
+.refcode {
+  margin-top: 0.6rem;
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.refcode .k {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.refcode .code {
+  font-family: var(--mono);
+  font-size: var(--step-1);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Account cards -- */
+.accounts { display: flex; flex-direction: column; gap: 0.7rem; }
+
+.account {
+  padding: 1.35rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.account:hover { transform: translateY(-3px); }
+.account:hover::before { opacity: 1; }
+
+.account-head { display: flex; align-items: center; gap: 0.85rem; }
+.account-logo {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  clip-path: var(--chamfer-sm);
+  background: color-mix(in srgb, var(--pane) 18%, transparent);
+  color: var(--pane);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.account-name { display: flex; flex-direction: column; line-height: 1.25; }
+.account-bank { font-weight: 700; font-size: 1rem; }
+.account-kind {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.account-rows { display: flex; flex-direction: column; gap: 0.45rem; }
+
+.acct-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.65rem;
+  background: var(--surface-soft);
+  clip-path: var(--chamfer-sm);
+}
+.acct-row .k {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  flex: none;
+}
+.acct-row .v {
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.acct-row .v.is-name { font-family: var(--body); letter-spacing: 0; }
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+  padding: 0.3rem 0.55rem;
+  clip-path: var(--chamfer-sm);
+  background: var(--surface-hi);
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.copy:hover { color: var(--gold); background: color-mix(in srgb, var(--gold) 16%, transparent); }
+.copy.is-done { color: var(--gold); }
+
+/* -- Steps -- */
+.steps {
+  margin-top: clamp(2.5rem, 1.8rem + 2.4vw, 4rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(1rem, 0.6rem + 1.4vw, 1.75rem);
+  counter-reset: step;
+}
+.step { display: flex; flex-direction: column; gap: 0.55rem; padding-top: 1.1rem; border-top: 1px solid var(--came); }
+.step-n {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+.step h4 { font-family: var(--body); font-size: 1rem; font-weight: 700; letter-spacing: 0; }
+.step p { color: var(--ink-soft); font-size: 0.92rem; }
+
+.give-note {
+  margin-top: 2.25rem;
+  font-size: 0.86rem;
+  color: var(--ink-muted);
+  max-width: 52ch;
+}
+
+/* ==========================================================================
+   Join
+   ========================================================================== */
+.join-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(0.85rem, 0.5rem + 1.2vw, 1.4rem);
+}
+.join-card {
+  padding: 1.75rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.join-card:hover { transform: translateY(-4px); }
+.join-card:hover::before { opacity: 1; }
+.join-kind {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pane);
+}
+.join-card h3 { font-size: var(--step-1); font-weight: 600; }
+.join-card p { color: var(--ink-soft); font-size: 0.94rem; flex: 1; }
+.join-link {
+  margin-top: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--pane);
+  align-self: flex-start;
+}
+.join-link .arrow { transition: transform 0.25s ease; }
+.join-link:hover .arrow { transform: translateX(3px); }
+
+/* ==========================================================================
+   Leadership
+   ========================================================================== */
+.lead-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 0.9rem + 3vw, 3.25rem);
+  align-items: start;
+}
+@media (max-width: 900px) { .lead-grid { grid-template-columns: 1fr; } }
+
+.pastor-card { padding: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem); display: flex; flex-direction: column; gap: 1.1rem; }
+.pastor-quote {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--step-2);
+  line-height: 1.32;
+}
+.pastor-who { display: flex; flex-direction: column; gap: 0.15rem; padding-top: 1.1rem; border-top: 1px solid var(--came); }
+.pastor-name { font-weight: 700; }
+.pastor-role, .pastor-church {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Officers — real portraits, one card each. */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+  gap: clamp(0.7rem, 0.45rem + 0.9vw, 1.1rem);
+  margin-bottom: clamp(1rem, 0.6rem + 1.4vw, 1.75rem);
+}
+.board-card { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.board-card:hover { transform: translateY(-4px); }
+.board-card:hover::before { opacity: 1; }
+.board-card .glass-in {
+  padding: 1.5rem 1.1rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: center;
+}
+
+.portrait {
+  width: 88px;
+  height: 88px;
+  flex: none;
+  display: block;
+  overflow: hidden;
+  clip-path: var(--chamfer-sm);
+  background: linear-gradient(140deg,
+    color-mix(in srgb, var(--gold) 26%, transparent),
+    color-mix(in srgb, var(--azure) 20%, transparent));
+  box-shadow: 0 0 0 1px var(--came);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.portrait--lg { width: 104px; height: 104px; }
+
+.board-card .board-who { align-items: center; }
+
+.overseers .glass-in { padding: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem); }
+.overseer-list { display: flex; flex-direction: column; gap: 0.15rem; margin-top: 1.25rem; }
+.overseer-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.overseer-list li:last-child { border-bottom: 0; }
+.overseer-name { font-size: 0.94rem; font-weight: 600; }
+.overseer-note { color: var(--ink-muted); font-weight: 400; font-size: 0.86rem; }
+
+.monogram {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  clip-path: var(--chamfer-sm);
+  background: linear-gradient(140deg, color-mix(in srgb, var(--gold) 30%, transparent), color-mix(in srgb, var(--azure) 22%, transparent));
+  font-family: var(--display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.board-who { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
+.board-name { font-weight: 600; font-size: 0.94rem; }
+.board-role {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background: var(--ground-deep);
+  border-top: 1px solid var(--came-soft);
+  padding-block: clamp(3rem, 2rem + 3vw, 4.5rem) 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  gap: clamp(1.75rem, 1rem + 3vw, 3.5rem);
+}
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+.footer-brand { display: flex; flex-direction: column; gap: 1.1rem; align-items: flex-start; }
+
+/* The official seal, shown at its own size rather than shrunk into a favicon. */
+.seal {
+  width: 96px;
+  height: auto;
+  padding: 0.5rem;
+  background: #FFFFFF;
+  clip-path: var(--chamfer-sm);
+  box-shadow: 0 0 0 1px var(--came);
+}
+.footer-addr { font-size: 0.9rem; color: var(--ink-muted); font-style: normal; line-height: 1.7; }
+
+.creds { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.cred {
+  padding: 0.4rem 0.7rem;
+  clip-path: var(--chamfer-sm);
+  background: var(--surface-soft);
+  box-shadow: inset 0 0 0 1px var(--came-soft);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.cred b { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.cred span { font-size: 0.72rem; color: var(--ink-muted); }
+
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-col a {
+  text-decoration: none;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.25s ease;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-col .handle { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-muted); }
+
+.footer-base {
+  margin-top: clamp(2.5rem, 1.8rem + 2vw, 3.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   Toast
+   ========================================================================== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translate(-50%, 140%);
+  z-index: 160;
+  padding: 0.75rem 1.2rem;
+  background: var(--gold);
+  color: var(--gold-ink);
+  clip-path: var(--chamfer-sm);
+  font-weight: 600;
+  font-size: 0.88rem;
+  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.6);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, visibility 0.3s;
+  max-width: calc(100vw - 2rem);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.toast.is-up { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
+
+/* ==========================================================================
+   Reveal on scroll — resting state is VISIBLE; JS hides only what is below
+   the fold at load, so the first frame is fully readable.
+   ========================================================================== */
+.reveal { opacity: 1; transform: none; transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.is-armed { opacity: 0; transform: translateY(18px); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-armed { opacity: 1 !important; transform: none !important; transition: none; }
+  .marquee-track, .hero-light { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+</style>
+<a class="skip" href="#main">Skip to content</a>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="1.5"/><path d="M5 15V4.5A1.5 1.5 0 0 1 6.5 3H15"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v5h-5"/></symbol>
+
+    
+    <symbol id="i-cross" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 4v24M8 12h16"/><path d="M16 4 L23 11 M16 4 L9 11" opacity=".45"/></symbol>
+    <symbol id="i-book" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 7h9a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H4z"/><path d="M28 7h-9a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h9z"/><path d="M16 12v4" opacity=".5"/></symbol>
+    <symbol id="i-child" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="9" r="4"/><path d="M8 27c0-5 3.6-8 8-8s8 3 8 8"/><path d="M16 2.5v2M11 4l1 1.7M21 4l-1 1.7" opacity=".5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 27S4 20 4 12.5A6.5 6.5 0 0 1 16 9a6.5 6.5 0 0 1 12 3.5C28 20 16 27 16 27z"/><path d="M16 14v6M13 17h6" opacity=".55"/></symbol>
+    <symbol id="i-wheel" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="24" r="6"/><path d="M13 24V9M13 13h7M13 18h5l4 8h5"/><circle cx="13" cy="5" r="2.5"/></symbol>
+    <symbol id="i-key" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="16" r="6"/><path d="M16 16h13M25 16v5M21 16v3.5"/></symbol>
+    <symbol id="i-hands" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 27V15a3 3 0 0 1 6 0M26 27V15a3 3 0 0 0-6 0"/><path d="M12 27v-9a4 4 0 0 1 8 0v9"/><path d="M16 12V4M13 7l3-3 3 3" opacity=".55"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="4" y="7" width="24" height="21" rx="2"/><path d="M4 14h24M11 4v6M21 4v6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="7" width="26" height="18" rx="4"/><path d="M14 12.5l6 3.5-6 3.5z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 3l2.8 9.2L28 16l-9.2 3.2L16 29l-2.8-9.8L4 16l9.2-3.8z"/></symbol>
+
+    
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.4-5.2a2.7 2.7 0 0 0-1.9-1.9C19 4.5 12 4.5 12 4.5s-7 0-8.7.4a2.7 2.7 0 0 0-1.9 1.9C1 8.5 1 12 1 12s0 3.5.4 5.2a2.7 2.7 0 0 0 1.9 1.9c1.7.4 8.7.4 8.7.4s7 0 8.7-.4a2.7 2.7 0 0 0 1.9-1.9C23 15.5 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.1l-6.8 7.7L21.8 21h-6.2l-4.9-6.3L5.1 21H2l7.3-8.3L2.3 3h6.3l4.4 5.8zM16.4 19.2h1.7L7.7 4.7H5.9z"/></symbol>
+  </defs>
+</svg>
+
+<header class="header">
+  <div class="wrap header-in">
+
+    <a class="brand" href="#top" aria-label="Jesus Oneness Love Mission — home">
+      <svg class="brand-mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <defs>
+          <linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" style="stop-color:var(--gold-hi)"/>
+            <stop offset="1" style="stop-color:var(--rose)"/>
+          </linearGradient>
+        </defs>
+        <path d="M17 1.5 32.5 10v14L17 32.5 1.5 24V10z" fill="none" stroke="var(--came)" stroke-width="1"/>
+        <path d="M17 7v20M10 14h14" stroke="url(#bm)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <path d="M17 7l5 5M17 7l-5 5" stroke="url(#bm)" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".5"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">Jesus Oneness</span>
+        <span class="brand-sub">Love Mission</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#mission">Mission</a><a href="#ministries">Ministries</a><a href="#work">Our Work</a><a href="#watch">Watch</a><a href="#leadership">Leadership</a><a href="#join">Join Us</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon-moon" width="17" height="17" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="icon-sun" width="17" height="17" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-solid" href="#give">Give<svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="burger" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg width="21" height="21" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <button class="drawer-close" type="button" aria-label="Close menu">
+      <svg width="22" height="22" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
+  <a class="drawer-link" href="#mission">Mission</a><a class="drawer-link" href="#ministries">Ministries</a><a class="drawer-link" href="#work">Our Work</a><a class="drawer-link" href="#watch">Watch</a><a class="drawer-link" href="#leadership">Leadership</a><a class="drawer-link" href="#join">Join Us</a>
+  <a class="btn btn-solid" href="#give">Give to the mission<svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+
+<main id="main">
+  
+  <section class="hero" id="top">
+  <div class="hero-light" aria-hidden="true"></div>
+  <div class="hero-lattice" aria-hidden="true"></div>
+  <canvas id="motes" aria-hidden="true"></canvas>
+
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <p class="eyebrow">Non-profit ministry · Sto. Tomas, Batangas</p>
+
+        <h1>
+          
+            <span class="line">Transformation of the</span>
+          
+            <span class="line gild">Mind, Body</span>
+          
+            <span class="line">and Soul.</span>
+          
+        </h1>
+
+        <p class="lede">A Filipino non-profit carrying the love of Jesus Christ to the hungry, the sick, the imprisoned and the forgotten — one household at a time.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#give">
+            Support the mission
+            <svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#work">See our work</a>
+        </div>
+      </div>
+
+      <figure class="glass verse-card pane-gold" style="margin:0">
+        <div class="glass-in">
+          <span class="verse-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="verse-text" style="margin:0">But seek first his kingdom and his righteousness, and all these things will be given to you as well.</blockquote>
+          <figcaption class="verse-ref">Matthew 6:33</figcaption>
+        </div>
+      </figure>
+
+    </div>
+
+    <div class="impact-strip">
+      
+      <div class="impact-item">
+        <span class="impact-value" data-count="1200" data-suffix="+">0+</span>
+        <span class="impact-label">Meals served</span>
+        <span class="impact-note">Community feeding</span>
+      </div>
+      
+      <div class="impact-item">
+        <span class="impact-value" data-count="48" data-suffix="">0</span>
+        <span class="impact-label">Wheelchairs sponsored</span>
+        <span class="impact-note">Mobility program</span>
+      </div>
+      
+      <div class="impact-item">
+        <span class="impact-value" data-count="26" data-suffix="">0</span>
+        <span class="impact-label">Families rehoused</span>
+        <span class="impact-note">Caingin, Sta. Rosa</span>
+      </div>
+      
+      <div class="impact-item">
+        <span class="impact-value" data-count="140" data-suffix="+">0+</span>
+        <span class="impact-label">Bible studies held</span>
+        <span class="impact-note">Since 2023</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    
+      
+      <div class="marquee-item">
+        <svg class="marquee-star" width="14" height="14"><use href="#i-spark"/></svg>
+        <span>&ldquo;But seek first his kingdom and his righteousness, and all these things will be given to you as well.&rdquo;</span>
+        <span class="ref">Matthew 6:33</span>
+      </div>
+      
+      <div class="marquee-item">
+        <svg class="marquee-star" width="14" height="14"><use href="#i-spark"/></svg>
+        <span>&ldquo;But as for me and my house, we will serve the Lord.&rdquo;</span>
+        <span class="ref">Joshua 24:15</span>
+      </div>
+      
+    
+      
+      <div class="marquee-item">
+        <svg class="marquee-star" width="14" height="14"><use href="#i-spark"/></svg>
+        <span>&ldquo;But seek first his kingdom and his righteousness, and all these things will be given to you as well.&rdquo;</span>
+        <span class="ref">Matthew 6:33</span>
+      </div>
+      
+      <div class="marquee-item">
+        <svg class="marquee-star" width="14" height="14"><use href="#i-spark"/></svg>
+        <span>&ldquo;But as for me and my house, we will serve the Lord.&rdquo;</span>
+        <span class="ref">Joshua 24:15</span>
+      </div>
+      
+    
+  </div>
+</div>
+  <section class="section" id="mission">
+  <div class="wrap">
+    <div class="duo">
+
+      <article class="glass creed pane-gold reveal">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:1.15rem">
+          <svg class="creed-glyph" width="30" height="30" aria-hidden="true"><use href="#i-cross"/></svg>
+          <p class="eyebrow">Our Mission</p>
+          <h3>Love, compassion and unity — shown, not just spoken.</h3>
+          <p class="body-text">Our mission is rooted in the core teachings of the Word of God, where love, compassion and unity are shown, inspired by the teachings and life of our loving Lord Jesus Christ. We are a dedicated non-profit organization committed to making a positive impact on the lives of those in need in the Philippines.</p>
+        </div>
+      </article>
+
+      <article class="glass creed pane-azure reveal" data-delay="90">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:1.15rem">
+          <svg class="creed-glyph" width="30" height="30" aria-hidden="true"><use href="#i-spark"/></svg>
+          <p class="eyebrow" style="color:var(--azure)">Our Vision</p>
+          <h3>Hope, dignity and a bright future for all.</h3>
+          <p class="body-text">At Jesus Oneness Love Mission, we believe in the power of the Holy Spirit by spreading the Word of God to transform mind, body and soul. Our charity is driven by a singular purpose: to spread the love and kindness of our Lord Jesus Christ to all, regardless of their background or circumstances. We aim to provide support and resources to the less fortunate, helping them find hope, dignity and a bright future.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+  
+
+<section class="section" id="ministries">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2>Six ministries, one household at a time.</h2>
+      <p class="lede">The work is not abstract. It is a chair for a neighbour who cannot walk,
+        a hospital bill paid, a Tuesday evening opening Scripture in someone's living room.</p>
+    </div>
+
+    <div class="ministry-grid">
+      
+      <article class="glass ministry pane-gold reveal" data-delay="0">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem;height:100%">
+          <div class="ministry-top">
+            <svg class="ministry-glyph" width="30" height="30" aria-hidden="true"><use href="#i-book"/></svg>
+            <span class="ministry-index">01</span>
+          </div>
+          <h3>Bible Study</h3>
+          <p>Weekly gatherings in homes and barangay halls, opening the Word together for youth, ushers and families.</p>
+          <p class="ministry-meta">Weekly · Sto. Tomas</p>
+        </div>
+      </article>
+      
+      <article class="glass ministry pane-rose reveal" data-delay="60">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem;height:100%">
+          <div class="ministry-top">
+            <svg class="ministry-glyph" width="30" height="30" aria-hidden="true"><use href="#i-child"/></svg>
+            <span class="ministry-index">02</span>
+          </div>
+          <h3>Kids Ministry &amp; DVBS</h3>
+          <p>Daily Vacation Bible School, thanksgiving parties and programs built so a child is treated as a beam of sunlight.</p>
+          <p class="ministry-meta">Seasonal · Ages 4–12</p>
+        </div>
+      </article>
+      
+      <article class="glass ministry pane-azure reveal" data-delay="120">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem;height:100%">
+          <div class="ministry-top">
+            <svg class="ministry-glyph" width="30" height="30" aria-hidden="true"><use href="#i-heart"/></svg>
+            <span class="ministry-index">03</span>
+          </div>
+          <h3>Medical Assistance</h3>
+          <p>Hospitalization support and medicine for families who would otherwise go without care.</p>
+          <p class="ministry-meta">On request · Batangas</p>
+        </div>
+      </article>
+      
+      <article class="glass ministry pane-gold reveal" data-delay="180">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem;height:100%">
+          <div class="ministry-top">
+            <svg class="ministry-glyph" width="30" height="30" aria-hidden="true"><use href="#i-wheel"/></svg>
+            <span class="ministry-index">04</span>
+          </div>
+          <h3>Wheelchair Sponsorship</h3>
+          <p>Mobility restored to neighbours living with disability, sponsored chair by chair.</p>
+          <p class="ministry-meta">Ongoing · Nationwide</p>
+        </div>
+      </article>
+      
+      <article class="glass ministry pane-azure reveal" data-delay="240">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem;height:100%">
+          <div class="ministry-top">
+            <svg class="ministry-glyph" width="30" height="30" aria-hidden="true"><use href="#i-key"/></svg>
+            <span class="ministry-index">05</span>
+          </div>
+          <h3>Jail Ministry</h3>
+          <p>Visiting those inside, because the Lord remembers the prisoner as surely as the free.</p>
+          <p class="ministry-meta">Monthly · Local facilities</p>
+        </div>
+      </article>
+      
+      <article class="glass ministry pane-rose reveal" data-delay="300">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem;height:100%">
+          <div class="ministry-top">
+            <svg class="ministry-glyph" width="30" height="30" aria-hidden="true"><use href="#i-hands"/></svg>
+            <span class="ministry-index">06</span>
+          </div>
+          <h3>Community Outreach</h3>
+          <p>Relief and rebuilding for homeless families, including our ongoing work in Caingin, Sta. Rosa, Laguna.</p>
+          <p class="ministry-meta">As needed · Luzon</p>
+        </div>
+      </article>
+      
+    </div>
+
+  </div>
+</section>
+  <section class="section" id="work" style="background:var(--ground-deep)">
+  <div class="wrap">
+
+    <div class="work-head">
+      <div class="section-head reveal">
+        <p class="eyebrow">Our work</p>
+        <h2>What the mission has looked like so far.</h2>
+        <p class="lede">Every outreach, study and milestone since 2023 — filter by the
+          part of the ministry you want to see.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter our work by category">
+        
+        <button class="filter" type="button" data-filter="All"
+                aria-pressed="true">All</button>
+        
+        <button class="filter" type="button" data-filter="Outreach"
+                aria-pressed="false">Outreach</button>
+        
+        <button class="filter" type="button" data-filter="Kids"
+                aria-pressed="false">Kids</button>
+        
+        <button class="filter" type="button" data-filter="Bible Study"
+                aria-pressed="false">Bible Study</button>
+        
+        <button class="filter" type="button" data-filter="Ministry"
+                aria-pressed="false">Ministry</button>
+        
+        <button class="filter" type="button" data-filter="Milestones"
+                aria-pressed="false">Milestones</button>
+        
+      </div>
+    </div>
+
+    <div class="work-grid">
+      
+      <button class="glass work-card pane-rose reveal"
+              type="button"
+              data-cat="Outreach"
+              data-title="Helping homeless families in Caingin"
+              data-place="Sta. Rosa, Laguna"
+              data-date="2023"
+              data-blurb="Our largest relief effort to date — food, shelter materials and prayer brought to families living without a roof."
+              data-pane-class="pane-rose"
+              data-img="img/caingin-1.webp"
+              data-delay="0"
+              aria-label="Helping homeless families in Caingin — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/caingin-1.webp"
+                                  alt="Helping homeless families in Caingin" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Outreach</span>
+          <h3>Helping homeless families in Caingin</h3>
+          <span class="work-meta">
+            <span>Sta. Rosa, Laguna</span>
+            <span class="dot"></span>
+            <span>2023</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-gold reveal"
+              type="button"
+              data-cat="Kids"
+              data-title="JOLM Kids Thanksgiving Party"
+              data-place="Sto. Tomas, Batangas"
+              data-date="2024"
+              data-blurb="A full day of games, a hot meal and the gospel, for children who rarely get a party of their own."
+              data-pane-class="pane-gold"
+              data-img="img/kids-1.webp"
+              data-delay="45"
+              aria-label="JOLM Kids Thanksgiving Party — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/kids-1.webp"
+                                  alt="JOLM Kids Thanksgiving Party" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Kids</span>
+          <h3>JOLM Kids Thanksgiving Party</h3>
+          <span class="work-meta">
+            <span>Sto. Tomas, Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-azure reveal"
+              type="button"
+              data-cat="Outreach"
+              data-title="Medical assistance &amp; hospitalization"
+              data-place="Batangas"
+              data-date="2024"
+              data-blurb="Bills covered and medicine delivered for families facing a sudden hospital stay."
+              data-pane-class="pane-azure"
+              data-img="img/medical-1.webp"
+              data-delay="90"
+              aria-label="Medical assistance &amp; hospitalization — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/medical-1.webp"
+                                  alt="Medical assistance &amp; hospitalization" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Outreach</span>
+          <h3>Medical assistance &amp; hospitalization</h3>
+          <span class="work-meta">
+            <span>Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-gold reveal"
+              type="button"
+              data-cat="Bible Study"
+              data-title="Guard Your Heart Bible Study"
+              data-place="Sto. Tomas, Batangas"
+              data-date="August 2024"
+              data-blurb="A season of teaching on Proverbs 4:23, held across homes in the barangay."
+              data-pane-class="pane-gold"
+              data-img="img/bible-1.webp"
+              data-delay="135"
+              aria-label="Guard Your Heart Bible Study — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/bible-1.webp"
+                                  alt="Guard Your Heart Bible Study" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Bible Study</span>
+          <h3>Guard Your Heart Bible Study</h3>
+          <span class="work-meta">
+            <span>Sto. Tomas, Batangas</span>
+            <span class="dot"></span>
+            <span>August 2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-azure reveal"
+              type="button"
+              data-cat="Ministry"
+              data-title="Wheelchair sponsorship"
+              data-place="Ongoing"
+              data-date="2024"
+              data-blurb="Each chair is matched to a named neighbour and handed over in person by the board."
+              data-pane-class="pane-azure"
+              data-img="img/wheelchair-1.webp"
+              data-delay="180"
+              aria-label="Wheelchair sponsorship — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/wheelchair-1.webp"
+                                  alt="Wheelchair sponsorship" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Ministry</span>
+          <h3>Wheelchair sponsorship</h3>
+          <span class="work-meta">
+            <span>Ongoing</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-rose reveal"
+              type="button"
+              data-cat="Ministry"
+              data-title="Jail Ministry"
+              data-place="Local facilities"
+              data-date="2024"
+              data-blurb="Monthly visits, worship and counselling inside."
+              data-pane-class="pane-rose"
+              data-img="img/jail-1.webp"
+              data-delay="225"
+              aria-label="Jail Ministry — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/jail-1.webp"
+                                  alt="Jail Ministry" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Ministry</span>
+          <h3>Jail Ministry</h3>
+          <span class="work-meta">
+            <span>Local facilities</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-rose reveal"
+              type="button"
+              data-cat="Kids"
+              data-title="JOLM Kids Ministry launch"
+              data-place="Sto. Tomas, Batangas"
+              data-date="2024"
+              data-blurb="The programme flow for our children&#39;s ministry, launched with the local church."
+              data-pane-class="pane-rose"
+              data-img="img/kids-launch.webp"
+              data-delay="270"
+              aria-label="JOLM Kids Ministry launch — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/kids-launch.webp"
+                                  alt="JOLM Kids Ministry launch" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Kids</span>
+          <h3>JOLM Kids Ministry launch</h3>
+          <span class="work-meta">
+            <span>Sto. Tomas, Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-azure reveal"
+              type="button"
+              data-cat="Milestones"
+              data-title="SEC registration completed"
+              data-place="Republic of the Philippines"
+              data-date="2024"
+              data-blurb="JOLM formally incorporated as a non-stock, non-profit organization."
+              data-pane-class="pane-azure"
+              data-img="img/sec.webp"
+              data-delay="315"
+              aria-label="SEC registration completed — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/sec.webp"
+                                  alt="SEC registration completed" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Milestones</span>
+          <h3>SEC registration completed</h3>
+          <span class="work-meta">
+            <span>Republic of the Philippines</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-gold reveal"
+              type="button"
+              data-cat="Milestones"
+              data-title="Sto. Tomas Municipal Hall accreditation"
+              data-place="Sto. Tomas, Batangas"
+              data-date="2024"
+              data-blurb="Recognised by the local government as an accredited civil-society partner."
+              data-pane-class="pane-gold"
+              data-img="img/accreditation.webp"
+              data-delay="360"
+              aria-label="Sto. Tomas Municipal Hall accreditation — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/accreditation.webp"
+                                  alt="Sto. Tomas Municipal Hall accreditation" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Milestones</span>
+          <h3>Sto. Tomas Municipal Hall accreditation</h3>
+          <span class="work-meta">
+            <span>Sto. Tomas, Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-rose reveal"
+              type="button"
+              data-cat="Outreach"
+              data-title="Rebuilding after the rain"
+              data-place="Caingin, Sta. Rosa, Laguna"
+              data-date="2023"
+              data-blurb="Returning to the same families with materials to rebuild, not just relief to get through the week."
+              data-pane-class="pane-rose"
+              data-img="img/caingin-2.webp"
+              data-delay="405"
+              aria-label="Rebuilding after the rain — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/caingin-2.webp"
+                                  alt="Rebuilding after the rain" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Outreach</span>
+          <h3>Rebuilding after the rain</h3>
+          <span class="work-meta">
+            <span>Caingin, Sta. Rosa, Laguna</span>
+            <span class="dot"></span>
+            <span>2023</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-gold reveal"
+              type="button"
+              data-cat="Bible Study"
+              data-title="Bible Study with Youth Ushers"
+              data-place="Sto. Tomas, Batangas"
+              data-date="2024"
+              data-blurb="Teaching the young people who serve every week — so those who usher also get fed."
+              data-pane-class="pane-gold"
+              data-img="img/bible-2.webp"
+              data-delay="450"
+              aria-label="Bible Study with Youth Ushers — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/bible-2.webp"
+                                  alt="Bible Study with Youth Ushers" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Bible Study</span>
+          <h3>Bible Study with Youth Ushers</h3>
+          <span class="work-meta">
+            <span>Sto. Tomas, Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-gold reveal"
+              type="button"
+              data-cat="Kids"
+              data-title="Daily Vacation Bible School"
+              data-place="Three-day programme"
+              data-date="2024"
+              data-blurb="Three days of teaching, music and play — with a recap published for parents each evening."
+              data-pane-class="pane-gold"
+              data-img="img/kids-2.webp"
+              data-delay="495"
+              aria-label="Daily Vacation Bible School — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/kids-2.webp"
+                                  alt="Daily Vacation Bible School" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Kids</span>
+          <h3>Daily Vacation Bible School</h3>
+          <span class="work-meta">
+            <span>Three-day programme</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-azure reveal"
+              type="button"
+              data-cat="Ministry"
+              data-title="A chair handed over in person"
+              data-place="Batangas"
+              data-date="2024"
+              data-blurb="Mobility restored to a neighbour living with disability, delivered by the board themselves."
+              data-pane-class="pane-azure"
+              data-img="img/wheelchair-2.webp"
+              data-delay="540"
+              aria-label="A chair handed over in person — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/wheelchair-2.webp"
+                                  alt="A chair handed over in person" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Ministry</span>
+          <h3>A chair handed over in person</h3>
+          <span class="work-meta">
+            <span>Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-azure reveal"
+              type="button"
+              data-cat="Outreach"
+              data-title="Hospital visitation"
+              data-place="Batangas"
+              data-date="2024"
+              data-blurb="Sitting with patients and their families through the long days of a hospital stay."
+              data-pane-class="pane-azure"
+              data-img="img/medical-2.webp"
+              data-delay="585"
+              aria-label="Hospital visitation — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/medical-2.webp"
+                                  alt="Hospital visitation" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Outreach</span>
+          <h3>Hospital visitation</h3>
+          <span class="work-meta">
+            <span>Batangas</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+      <button class="glass work-card pane-gold reveal"
+              type="button"
+              data-cat="Milestones"
+              data-title="BIR registration"
+              data-place="Republic of the Philippines"
+              data-date="2024"
+              data-blurb="Registered with the Bureau of Internal Revenue, so official receipts can be issued for every gift."
+              data-pane-class="pane-gold"
+              data-img="img/bir.webp"
+              data-delay="630"
+              aria-label="BIR registration — open details">
+        <span class="work-tile has-photo" aria-hidden="true">
+          <img src="img/bir.webp"
+                                  alt="BIR registration" loading="lazy" decoding="async"
+                                  width="320" height="640">
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">Milestones</span>
+          <h3>BIR registration</h3>
+          <span class="work-meta">
+            <span>Republic of the Philippines</span>
+            <span class="dot"></span>
+            <span>2024</span>
+          </span>
+        </span>
+      </button>
+      
+    </div>
+
+    <p class="work-note">Photographs are JOLM's own, carried over from the existing site.</p>
+
+  </div>
+</section>
+
+<div class="lightbox pane-gold" role="dialog" aria-modal="true" aria-label="Event details" aria-hidden="true">
+  <div class="glass lightbox-panel">
+    <button class="lightbox-close" type="button" aria-label="Close">
+      <svg width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem">
+      <img class="lb-img" src="" alt="" hidden>
+      <p class="work-cat lb-cat"></p>
+      <h3></h3>
+      <p class="lb-meta" style="font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)"></p>
+      <p class="lb-blurb body-text" style="max-width:none"></p>
+    </div>
+  </div>
+</div>
+  <section class="section" id="watch">
+  <div class="wrap">
+
+    <div class="work-head">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <p class="eyebrow">Watch</p>
+        <h2>See the mission for yourself.</h2>
+        <p class="lede">Anniversary services, thanksgiving celebrations and recaps —
+          posted to our channel as they happen.</p>
+      </div>
+
+      <a class="btn btn-ghost reveal" href="https://www.youtube.com/channel/UC3sxLeCLK8hIf5qp5NFpSZw" target="_blank" rel="noopener">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-youtube"/></svg>
+        Subscribe on YouTube
+        <svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+
+    <div class="video-grid">
+      
+      <article class="glass video pane-gold reveal" data-delay="0">
+        <div class="glass-in">
+
+          
+          <button class="video-play" type="button"
+                  data-video="bRZFedDGoSc"
+                  data-title="Our 1st Anniversary Celebration"
+                  aria-label="Play Our 1st Anniversary Celebration">
+            <img class="video-poster"
+                 src="img/video-anniversary.jpg"
+                 alt="" loading="lazy" decoding="async" width="1280" height="720">
+            <span class="video-scrim" aria-hidden="true"></span>
+            <span class="video-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <span class="video-kind">Trailer</span>
+          </button>
+
+          <div class="video-body">
+            <h3>Our 1st Anniversary Celebration</h3>
+            <p>One year of ministry, marked with praise, worship and the launch of our music team.</p>
+            
+            <a class="join-link" href="https://www.youtube.com/watch?v=bRZFedDGoSc"
+               target="_blank" rel="noopener">
+              Watch on YouTube
+              <svg class="arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </article>
+      
+      <article class="glass video pane-rose reveal" data-delay="90">
+        <div class="glass-in">
+
+          
+          <button class="video-play" type="button"
+                  data-video="DqaSYclxCFk"
+                  data-title="Thanksgiving Celebration"
+                  aria-label="Play Thanksgiving Celebration">
+            <img class="video-poster"
+                 src="img/video-thanksgiving.jpg"
+                 alt="" loading="lazy" decoding="async" width="1280" height="720">
+            <span class="video-scrim" aria-hidden="true"></span>
+            <span class="video-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <span class="video-kind">Trailer</span>
+          </button>
+
+          <div class="video-body">
+            <h3>Thanksgiving Celebration</h3>
+            <p>Giving thanks together with the families and children the mission has walked alongside this year.</p>
+            
+            <a class="join-link" href="https://www.youtube.com/watch?v=DqaSYclxCFk"
+               target="_blank" rel="noopener">
+              Watch on YouTube
+              <svg class="arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </article>
+      
+    </div>
+
+  </div>
+</section>
+  <section class="section give" id="give">
+  <div class="wrap">
+
+    <div class="give-grid">
+
+      
+      <div class="reveal">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow">Support Our Mission</p>
+          <h2>Give directly. Every peso goes to the work.</h2>
+          <p class="lede">JOLM receives gifts by bank transfer and e-wallet only — there is no processing fee and no middleman taking a cut. Pick an amount, copy the details, and send your proof of transfer so our treasurer can acknowledge it.</p>
+        </div>
+
+        <div class="amounts" role="group" aria-label="Choose a gift amount">
+          
+          <button class="glass glass--sm amount" type="button"
+                  data-impact="&#8369;500 — Feeds a family of five for two days."
+                  aria-pressed="false">
+            <span class="glass-in" style="display:flex;flex-direction:column;gap:.15rem">
+              <span class="amount-figure"><span class="amount-cur">&#8369;</span>500</span>
+              <span class="amount-hint">Feeds a family of five for two days</span>
+            </span>
+          </button>
+          
+          <button class="glass glass--sm amount" type="button"
+                  data-impact="&#8369;1,000 — Covers one week of medicine for a patient in our care."
+                  aria-pressed="true">
+            <span class="glass-in" style="display:flex;flex-direction:column;gap:.15rem">
+              <span class="amount-figure"><span class="amount-cur">&#8369;</span>1,000</span>
+              <span class="amount-hint">Covers one week of medicine for a patient in our care</span>
+            </span>
+          </button>
+          
+          <button class="glass glass--sm amount" type="button"
+                  data-impact="&#8369;2,500 — Sends one child through the full Vacation Bible School."
+                  aria-pressed="false">
+            <span class="glass-in" style="display:flex;flex-direction:column;gap:.15rem">
+              <span class="amount-figure"><span class="amount-cur">&#8369;</span>2,500</span>
+              <span class="amount-hint">Sends one child through the full Vacation Bible School</span>
+            </span>
+          </button>
+          
+          <button class="glass glass--sm amount" type="button"
+                  data-impact="&#8369;5,000 — Sponsors one wheelchair, handed over in person."
+                  aria-pressed="false">
+            <span class="glass-in" style="display:flex;flex-direction:column;gap:.15rem">
+              <span class="amount-figure"><span class="amount-cur">&#8369;</span>5,000</span>
+              <span class="amount-hint">Sponsors one wheelchair, handed over in person</span>
+            </span>
+          </button>
+          
+        </div>
+
+        <div class="glass glass--sm custom-row">
+          <label for="custom-amount">Other</label>
+          <span aria-hidden="true" style="font-family:var(--display);font-size:var(--step-1);opacity:.6">&#8369;</span>
+          <input id="custom-amount" name="custom-amount" type="text" inputmode="numeric"
+                 autocomplete="off" placeholder="Enter any amount">
+        </div>
+
+        <div class="glass glass--sm impact-readout" aria-live="polite">
+          <svg class="glyph" width="20" height="20" aria-hidden="true"><use href="#i-spark"/></svg>
+          <span class="txt">
+            <span class="k">What your gift covers</span>
+            <span class="v">&#8369;1,000 — Covers one week of medicine for a patient in our care.</span>
+          </span>
+        </div>
+
+        <div class="glass glass--sm refcode">
+          <span>
+            <span class="k">Your reference code — paste into the transfer notes</span>
+            <span class="code">JOLM-0000-0000</span>
+          </span>
+          <button class="copy" type="button" data-label="Reference code">
+            <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+            <span class="copy-label">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      
+      <div class="accounts reveal" data-delay="90">
+        
+        <article class="glass account pane-gold">
+          <div class="glass-in" style="display:flex;flex-direction:column;gap:1rem">
+
+            <header class="account-head">
+              <span class="account-logo" aria-hidden="true">BD</span>
+              <span class="account-name">
+                <span class="account-bank">BDO Unibank</span>
+                <span class="account-kind">Bank transfer</span>
+              </span>
+            </header>
+
+            <div class="account-rows">
+              <div class="acct-row">
+                <span class="k">Account name</span>
+                <span class="v is-name">Jesus Oneness Love Mission Inc.</span>
+                <button class="copy" type="button" data-copy="Jesus Oneness Love Mission Inc." data-label="Account name"
+                        aria-label="Copy account name for BDO Unibank">
+                  <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+                  <span class="copy-label">Copy</span>
+                </button>
+              </div>
+
+              <div class="acct-row">
+                <span class="k">Account no.</span>
+                <span class="v">0000 1234 5678</span>
+                <button class="copy" type="button" data-copy="0000 1234 5678" data-label="Account number"
+                        aria-label="Copy account number for BDO Unibank">
+                  <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+                  <span class="copy-label">Copy</span>
+                </button>
+              </div>
+
+              <div class="acct-row">
+                <span class="k">Swift code</span>
+                <span class="v">BNORPHMM</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+        
+        <article class="glass account pane-azure">
+          <div class="glass-in" style="display:flex;flex-direction:column;gap:1rem">
+
+            <header class="account-head">
+              <span class="account-logo" aria-hidden="true">BA</span>
+              <span class="account-name">
+                <span class="account-bank">Bank of the Philippine Islands</span>
+                <span class="account-kind">Bank transfer</span>
+              </span>
+            </header>
+
+            <div class="account-rows">
+              <div class="acct-row">
+                <span class="k">Account name</span>
+                <span class="v is-name">Jesus Oneness Love Mission Inc.</span>
+                <button class="copy" type="button" data-copy="Jesus Oneness Love Mission Inc." data-label="Account name"
+                        aria-label="Copy account name for Bank of the Philippine Islands">
+                  <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+                  <span class="copy-label">Copy</span>
+                </button>
+              </div>
+
+              <div class="acct-row">
+                <span class="k">Account no.</span>
+                <span class="v">0000 9876 5432</span>
+                <button class="copy" type="button" data-copy="0000 9876 5432" data-label="Account number"
+                        aria-label="Copy account number for Bank of the Philippine Islands">
+                  <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+                  <span class="copy-label">Copy</span>
+                </button>
+              </div>
+
+              <div class="acct-row">
+                <span class="k">Swift code</span>
+                <span class="v">BOPIPHMM</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+        
+        <article class="glass account pane-rose">
+          <div class="glass-in" style="display:flex;flex-direction:column;gap:1rem">
+
+            <header class="account-head">
+              <span class="account-logo" aria-hidden="true">GC</span>
+              <span class="account-name">
+                <span class="account-bank">GCash</span>
+                <span class="account-kind">E-wallet</span>
+              </span>
+            </header>
+
+            <div class="account-rows">
+              <div class="acct-row">
+                <span class="k">Account name</span>
+                <span class="v is-name">Jesus Oneness Love Mission Inc.</span>
+                <button class="copy" type="button" data-copy="Jesus Oneness Love Mission Inc." data-label="Account name"
+                        aria-label="Copy account name for GCash">
+                  <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+                  <span class="copy-label">Copy</span>
+                </button>
+              </div>
+
+              <div class="acct-row">
+                <span class="k">Number</span>
+                <span class="v">0917 000 0000</span>
+                <button class="copy" type="button" data-copy="0917 000 0000" data-label="Account number"
+                        aria-label="Copy account number for GCash">
+                  <svg width="12" height="12" aria-hidden="true"><use href="#i-copy"/></svg>
+                  <span class="copy-label">Copy</span>
+                </button>
+              </div>
+
+              <div class="acct-row">
+                <span class="k">Account name shown as</span>
+                <span class="v">JE**S O****SS L**E M****ON</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+        
+
+        <p class="give-note" style="margin-top:.6rem">
+          No payment gateway, no processing fee — your transfer goes straight to the
+          JOLM treasury account and is reconciled by our treasurer.
+        </p>
+      </div>
+
+    </div>
+
+    
+    <div class="steps reveal">
+      
+      <div class="step">
+        <span class="step-n">Step 01</span>
+        <h4>Choose your gift</h4>
+        <p>Pick an amount, or enter your own. We will show you what it covers on the ground.</p>
+      </div>
+      
+      <div class="step">
+        <span class="step-n">Step 02</span>
+        <h4>Transfer with your reference code</h4>
+        <p>Copy the account details and paste your code into the notes or message field of the transfer.</p>
+      </div>
+      
+      <div class="step">
+        <span class="step-n">Step 03</span>
+        <h4>Send your proof</h4>
+        <p>Message the screenshot to our Facebook page or email the treasurer. We acknowledge every gift within 48 hours.</p>
+      </div>
+      
+    </div>
+
+    <p class="give-note">JOLM Inc. is a registered non-stock, non-profit organization. Official receipts are issued for every gift on request.</p>
+
+  </div>
+</section>
+  
+
+<section class="section section--tight" id="join">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <p class="eyebrow">Join us</p>
+      <h2>There is a place for you in this.</h2>
+    </div>
+
+    <div class="join-grid">
+      
+      <article class="glass join-card pane-gold reveal" data-delay="0">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.7rem;height:100%">
+          <svg width="26" height="26" aria-hidden="true" style="color:var(--pane)">
+            <use href="#i-calendar"/>
+          </svg>
+          <span class="join-kind">Calendar</span>
+          <h3>Come to what&#39;s next</h3>
+          <p>Bible studies, outreaches and kids&#39; programs — our year, open for you to join.</p>
+          <a class="join-link" href="#">
+            Get the calendar
+            <svg class="arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      
+      <article class="glass join-card pane-rose reveal" data-delay="80">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.7rem;height:100%">
+          <svg width="26" height="26" aria-hidden="true" style="color:var(--pane)">
+            <use href="#i-play"/>
+          </svg>
+          <span class="join-kind">YouTube</span>
+          <h3>Watch the ministry</h3>
+          <p>Anniversary services, DVBS recaps and praise nights, posted as they happen.</p>
+          <a class="join-link" href="#">
+            Subscribe on YouTube
+            <svg class="arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      
+      <article class="glass join-card pane-azure reveal" data-delay="160">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:.7rem;height:100%">
+          <svg width="26" height="26" aria-hidden="true" style="color:var(--pane)">
+            <use href="#i-hands"/>
+          </svg>
+          <span class="join-kind">Volunteer</span>
+          <h3>Serve with us</h3>
+          <p>Drivers, cooks, teachers, musicians and prayer warriors — there is a place for you.</p>
+          <a class="join-link" href="#">
+            Tell us you&#39;re in
+            <svg class="arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+      
+    </div>
+
+  </div>
+</section>
+  <section class="section" id="leadership">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <p class="eyebrow">Leadership</p>
+      <h2>Board of Directors &amp; Members</h2>
+      <p class="lede">The officers who founded and run JOLM, together with the
+        church and overseers who stand behind the work.</p>
+    </div>
+
+    
+    <div class="board-grid">
+      
+      <article class="glass board-card pane-gold reveal" data-delay="0">
+        <div class="glass-in">
+          <span class="portrait">
+            <img src="img/board-president.webp"
+                 alt="Cynthia J. Mendoza, President"
+                 loading="lazy" decoding="async" width="192" height="192">
+          </span>
+          <span class="board-who">
+            <span class="board-name">Cynthia J. Mendoza</span>
+            <span class="board-role">President</span>
+          </span>
+        </div>
+      </article>
+      
+      <article class="glass board-card pane-gold reveal" data-delay="60">
+        <div class="glass-in">
+          <span class="portrait">
+            <img src="img/board-vp.webp"
+                 alt="Arlene G. Jose, Vice President"
+                 loading="lazy" decoding="async" width="192" height="192">
+          </span>
+          <span class="board-who">
+            <span class="board-name">Arlene G. Jose</span>
+            <span class="board-role">Vice President</span>
+          </span>
+        </div>
+      </article>
+      
+      <article class="glass board-card pane-gold reveal" data-delay="120">
+        <div class="glass-in">
+          <span class="portrait">
+            <img src="img/board-secretary.webp"
+                 alt="Dolores J. Ocampo, Corporate Secretary"
+                 loading="lazy" decoding="async" width="192" height="192">
+          </span>
+          <span class="board-who">
+            <span class="board-name">Dolores J. Ocampo</span>
+            <span class="board-role">Corporate Secretary</span>
+          </span>
+        </div>
+      </article>
+      
+      <article class="glass board-card pane-gold reveal" data-delay="180">
+        <div class="glass-in">
+          <span class="portrait">
+            <img src="img/board-treasurer.webp"
+                 alt="Rogelio P. Mendoza, Treasurer"
+                 loading="lazy" decoding="async" width="192" height="192">
+          </span>
+          <span class="board-who">
+            <span class="board-name">Rogelio P. Mendoza</span>
+            <span class="board-role">Treasurer</span>
+          </span>
+        </div>
+      </article>
+      
+      <article class="glass board-card pane-gold reveal" data-delay="240">
+        <div class="glass-in">
+          <span class="portrait">
+            <img src="img/board-auditor.webp"
+                 alt="Rodel E. Reyes, Auditor"
+                 loading="lazy" decoding="async" width="192" height="192">
+          </span>
+          <span class="board-who">
+            <span class="board-name">Rodel E. Reyes</span>
+            <span class="board-role">Auditor</span>
+          </span>
+        </div>
+      </article>
+      
+    </div>
+
+    
+    <div class="lead-grid" style="margin-top:clamp(1rem,.6rem + 1.4vw,1.75rem)">
+
+      <article class="glass pastor-card pane-gold reveal">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:1.1rem">
+          <span class="portrait portrait--lg">
+            <img src="img/pastor.webp"
+                 alt="Ptr. Nilo Buiser" loading="lazy" decoding="async"
+                 width="192" height="192">
+          </span>
+          <blockquote class="pastor-quote" style="margin:0">&ldquo;Give thanks to the Lord, for He is good; His love endures forever.&rdquo;</blockquote>
+          <span class="verse-ref" style="margin-top:0">Psalm 107:1</span>
+          <div class="pastor-who">
+            <span class="pastor-name">Ptr. Nilo Buiser</span>
+            <span class="pastor-role">Head Pastor · Local Overseer</span>
+            <span class="pastor-church">Assembly of the Redeemed Church</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="glass overseers pane-azure reveal" data-delay="90">
+        <div class="glass-in">
+          <p class="eyebrow" style="color:var(--azure)">Overseers</p>
+          <ul class="overseer-list">
+            
+            <li>
+              <span class="monogram" aria-hidden="true">MM</span>
+              <span class="overseer-name"><span class="overseer-note">Mr. and Mrs.</span> Maggieh Maxfield</span>
+            </li>
+            
+            <li>
+              <span class="monogram" aria-hidden="true">DP</span>
+              <span class="overseer-name"><span class="overseer-note">Mr. and Mrs.</span> Deborah Phillips</span>
+            </li>
+            
+            <li>
+              <span class="monogram" aria-hidden="true">RA</span>
+              <span class="overseer-name"><span class="overseer-note">Mr. and Mrs.</span> Rosemarie Abrigo</span>
+            </li>
+            
+            <li>
+              <span class="monogram" aria-hidden="true">JA</span>
+              <span class="overseer-name"><span class="overseer-note">Ms.</span> Jenny Ancheta</span>
+            </li>
+            
+            <li>
+              <span class="monogram" aria-hidden="true">RF</span>
+              <span class="overseer-name"><span class="overseer-note">Mrs.</span> Rose Fadrow</span>
+            </li>
+            
+            <li>
+              <span class="monogram" aria-hidden="true">CL</span>
+              <span class="overseer-name"><span class="overseer-note">Mrs.</span> Clare Liebe</span>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img class="seal" src="img/logo.webp"
+             alt="Jesus Oneness Love Mission (JOLM) Inc. official seal" width="113" height="124"
+             loading="lazy" decoding="async">
+        <address class="footer-addr">
+          <strong style="color:var(--ink);font-style:normal">Jesus Oneness Love Mission (JOLM) Inc.</strong><br>
+          PH3 BLK 9 LOT 8 Via Verde Subd.<br>San Vicente, Sto. Tomas, Batangas 4234<br>
+        </address>
+        <div class="creds">
+          
+          <span class="cred"><b>SEC registered</b><span>Non-stock, non-profit</span></span>
+          
+          <span class="cred"><b>BIR registered</b><span>Official receipts issued</span></span>
+          
+          <span class="cred"><b>LGU accredited</b><span>Sto. Tomas, Batangas</span></span>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#mission">Mission</a></li><li><a href="#ministries">Ministries</a></li><li><a href="#work">Our Work</a></li><li><a href="#watch">Watch</a></li><li><a href="#leadership">Leadership</a></li><li><a href="#join">Join Us</a></li>
+          <li><a href="#give">Give</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow the mission</h4>
+        <ul>
+          
+          <li><a href="#">
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-facebook"/></svg>
+            Facebook <span class="handle">/jesusonenesslovemission</span>
+          </a></li>
+          
+          <li><a href="#">
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-instagram"/></svg>
+            Instagram <span class="handle">@jolm.inc</span>
+          </a></li>
+          
+          <li><a href="https://www.youtube.com/channel/UC3sxLeCLK8hIf5qp5NFpSZw">
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-youtube"/></svg>
+            YouTube <span class="handle">Jesus Oneness Love Mission</span>
+          </a></li>
+          
+          <li><a href="#">
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-x"/></svg>
+            X <span class="handle">@jolm_inc</span>
+          </a></li>
+          
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-base">
+      <span>&copy; 2026 Jesus Oneness Love Mission (JOLM) Inc.. All rights reserved.</span>
+      <span>Serving Sto. Tomas, Batangas since 2023</span>
+    </div>
+
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite"></div>
+<script>
+/* Jesus Oneness Love Mission — interactions.
+   No dependencies. Everything degrades to a readable page without JS. */
+(function () {
+  "use strict";
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $  = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---------------------------------------------------------------- Theme */
+  var THEME_KEY = "jolm-theme";
+  try {
+    var saved = localStorage.getItem(THEME_KEY);
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode — fall back to the OS preference */ }
+
+  function currentTheme() {
+    var stamped = document.documentElement.getAttribute("data-theme");
+    if (stamped) return stamped;
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }
+
+  var toggle = $(".theme-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      toggle.setAttribute("aria-label", "Switch to " + (next === "dark" ? "light" : "dark") + " mode");
+    });
+  }
+
+  /* --------------------------------------------------------------- Header */
+  var header = $(".header");
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle("is-stuck", window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* --------------------------------------------------------------- Drawer */
+  var drawer = $(".drawer");
+  if (drawer) {
+    var openDrawer = function (open) {
+      drawer.classList.toggle("is-open", open);
+      document.body.style.overflow = open ? "hidden" : "";
+      drawer.setAttribute("aria-hidden", open ? "false" : "true");
+    };
+    var burger = $(".burger");
+    if (burger) burger.addEventListener("click", function () { openDrawer(true); });
+    var dclose = $(".drawer-close");
+    if (dclose) dclose.addEventListener("click", function () { openDrawer(false); });
+    $$(".drawer a").forEach(function (a) {
+      a.addEventListener("click", function () { openDrawer(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") openDrawer(false);
+    });
+  }
+
+  /* --------------------------------------------------------------- Toast */
+  var toast = $(".toast");
+  var toastTimer;
+  function say(msg) {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add("is-up");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("is-up"); }, 2600);
+  }
+
+  /* -------------------------------------------------------------- Reveals
+     Elements already on screen at load are shown immediately (no flash of
+     empty page); only what is below the fold gets armed and animated. */
+  var reveals = $$(".reveal");
+  if (reveals.length && !reduced && "IntersectionObserver" in window) {
+    var vh = window.innerHeight;
+    var below = reveals.filter(function (el) {
+      return el.getBoundingClientRect().top > vh * 0.92;
+    });
+    below.forEach(function (el) { el.classList.add("is-armed"); });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var delay = parseFloat(el.getAttribute("data-delay") || "0");
+        setTimeout(function () {
+          el.classList.remove("is-armed");
+          el.classList.add("is-in");
+        }, delay);
+        io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+    below.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ------------------------------------------------------------- Count-up */
+  var counters = $$("[data-count]");
+  if (counters.length) {
+    var runCount = function (el) {
+      var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+      var suffix = el.getAttribute("data-suffix") || "";
+      if (reduced) { el.textContent = target.toLocaleString() + suffix; return; }
+      var start = performance.now();
+      var dur = 1500;
+      var tick = function (now) {
+        var t = Math.min((now - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased).toLocaleString() + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if ("IntersectionObserver" in window) {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          runCount(entry.target);
+          cio.unobserve(entry.target);
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function (el) { cio.observe(el); });
+    } else {
+      counters.forEach(runCount);
+    }
+  }
+
+  /* ------------------------------------------------------- Work: filters */
+  var filters = $$(".filter");
+  var cards = $$(".work-card");
+  filters.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var cat = btn.getAttribute("data-filter");
+      filters.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b === btn));
+      });
+      cards.forEach(function (card) {
+        var match = cat === "All" || card.getAttribute("data-cat") === cat;
+        card.classList.toggle("is-hidden", !match);
+      });
+    });
+  });
+
+  /* ------------------------------------------------------ Work: lightbox */
+  var lightbox = $(".lightbox");
+  if (lightbox) {
+    var lbTitle = $(".lightbox h3", lightbox);
+    var lbCat   = $(".lightbox .lb-cat", lightbox);
+    var lbMeta  = $(".lightbox .lb-meta", lightbox);
+    var lbBlurb = $(".lightbox .lb-blurb", lightbox);
+    var lbImg   = $(".lightbox .lb-img", lightbox);
+    var lastFocus = null;
+
+    var closeLb = function () {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocus) lastFocus.focus();
+    };
+
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        lastFocus = card;
+        lbTitle.textContent = card.getAttribute("data-title") || "";
+        lbCat.textContent   = card.getAttribute("data-cat") || "";
+        lbMeta.textContent  = [card.getAttribute("data-place"), card.getAttribute("data-date")]
+          .filter(Boolean).join(" · ");
+        lbBlurb.textContent = card.getAttribute("data-blurb") || "";
+
+        var src = card.getAttribute("data-img");
+        if (lbImg) {
+          if (src) {
+            lbImg.src = src;
+            lbImg.alt = card.getAttribute("data-title") || "";
+            lbImg.hidden = false;
+          } else {
+            lbImg.hidden = true;
+            lbImg.removeAttribute("src");
+          }
+        }
+
+        lightbox.className = "lightbox is-open " + (card.getAttribute("data-pane-class") || "pane-gold");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        var close = $(".lightbox-close", lightbox);
+        if (close) close.focus();
+      });
+    });
+
+    $$(".lightbox-close", lightbox).forEach(function (b) {
+      b.addEventListener("click", closeLb);
+    });
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLb();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLb();
+    });
+  }
+
+  /* ------------------------------------------------- Watch: click-to-play
+     The poster is a facade. YouTube is not contacted at all until the visitor
+     presses play, which keeps the page fast and sets no third-party cookies
+     on people who never watch. */
+  $$(".video-play").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-video");
+      if (!id) return;
+
+      var frame = document.createElement("iframe");
+      frame.className = "video-frame";
+      frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) +
+                  "?autoplay=1&rel=0&modestbranding=1";
+      frame.title = btn.getAttribute("data-title") || "Video";
+      frame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+      frame.allowFullscreen = true;
+      frame.setAttribute("loading", "lazy");
+
+      btn.replaceWith(frame);
+    });
+  });
+
+  /* ----------------------------------------------------------- Give: amount */
+  var amountBtns = $$(".amount");
+  var customInput = $("#custom-amount");
+  var impactValue = $(".impact-readout .v");
+  var peso = function (n) { return "₱" + Number(n).toLocaleString(); };
+
+  function setImpact(text) {
+    if (impactValue) impactValue.textContent = text;
+  }
+
+  amountBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      amountBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+      if (customInput) customInput.value = "";
+      setImpact(btn.getAttribute("data-impact") || "");
+    });
+  });
+
+  if (customInput) {
+    customInput.addEventListener("input", function () {
+      var v = parseInt(customInput.value.replace(/[^0-9]/g, ""), 10);
+      amountBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+      if (!v || v <= 0) {
+        setImpact("Enter an amount and we will show you what it covers.");
+        return;
+      }
+      /* Tiers mirror GIVE_AMOUNTS in content.py. */
+      var line;
+      if (v < 500)       line = "Every peso counts — pooled with other gifts to buy rice and canned goods.";
+      else if (v < 1000) line = "Feeds a family of five for two days.";
+      else if (v < 2500) line = "Covers one week of medicine for a patient in our care.";
+      else if (v < 5000) line = "Sends one child through the full Vacation Bible School.";
+      else if (v < 15000) line = "Sponsors " + Math.floor(v / 5000) + " wheelchair" +
+        (Math.floor(v / 5000) > 1 ? "s" : "") + ", handed over in person.";
+      else               line = "Underwrites a full community outreach — food, medicine and shelter materials.";
+      setImpact(peso(v) + " — " + line);
+    });
+  }
+
+  /* ------------------------------------------------------ Give: reference */
+  var codeEl = $(".refcode .code");
+  function localCode() {
+    var d = new Date();
+    var stamp = String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, "0");
+    var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    var tail = "";
+    for (var i = 0; i < 4; i++) tail += chars[Math.floor(Math.random() * chars.length)];
+    return "JOLM-" + stamp + "-" + tail;
+  }
+
+  function issueCode() {
+    if (!codeEl) return;
+    /* Ask the Flask endpoint; fall back to a local code when the page is
+       served statically (e.g. the client preview build). */
+    fetch("/api/reference-code")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) { codeEl.textContent = d.code; })
+      .catch(function () { codeEl.textContent = localCode(); });
+  }
+  issueCode();
+
+  var newCodeBtn = $(".refcode .copy");
+  if (newCodeBtn) {
+    newCodeBtn.addEventListener("click", function () {
+      copy(codeEl.textContent, "Reference code copied");
+    });
+  }
+
+  /* --------------------------------------------------------- Copy to board */
+  function copy(text, msg) {
+    var done = function () { say(msg || "Copied"); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  }
+
+  function fallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { say("Press Ctrl+C to copy"); }
+    document.body.removeChild(ta);
+  }
+
+  $$(".acct-row .copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var val = btn.getAttribute("data-copy") || "";
+      copy(val, (btn.getAttribute("data-label") || "Details") + " copied");
+      btn.classList.add("is-done");
+      var label = $(".copy-label", btn);
+      if (label) {
+        var was = label.textContent;
+        label.textContent = "Copied";
+        setTimeout(function () { label.textContent = was; btn.classList.remove("is-done"); }, 1800);
+      }
+    });
+  });
+
+  /* ------------------------------------------- Hero: dust motes in the light
+     Cathedral light catches dust. Cheap canvas, pauses when off-screen. */
+  var canvas = document.getElementById("motes");
+  if (canvas && !reduced) {
+    var ctx = canvas.getContext("2d");
+    var motes = [];
+    var raf = null;
+    var w = 0, h = 0;
+
+    function size() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var rect = canvas.parentElement.getBoundingClientRect();
+      w = rect.width; h = rect.height;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function seed() {
+      var count = Math.round(Math.min(w, 1400) / 16);
+      motes = [];
+      for (var i = 0; i < count; i++) {
+        motes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.6 + 0.35,
+          vy: -(Math.random() * 0.18 + 0.04),
+          vx: (Math.random() - 0.5) * 0.12,
+          a: Math.random() * 0.5 + 0.12,
+          p: Math.random() * Math.PI * 2
+        });
+      }
+    }
+
+    function gold() {
+      return getComputedStyle(document.documentElement).getPropertyValue("--gold").trim() || "#E3B44A";
+    }
+
+    var fill = gold();
+
+    function frame(t) {
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < motes.length; i++) {
+        var m = motes[i];
+        m.y += m.vy;
+        m.x += m.vx + Math.sin(t / 2600 + m.p) * 0.14;
+        if (m.y < -6) { m.y = h + 6; m.x = Math.random() * w; }
+        if (m.x < -6) m.x = w + 6;
+        if (m.x > w + 6) m.x = -6;
+        var twinkle = 0.65 + Math.sin(t / 1100 + m.p) * 0.35;
+        ctx.globalAlpha = m.a * twinkle;
+        ctx.fillStyle = fill;
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(frame);
+    }
+
+    size(); seed();
+    raf = requestAnimationFrame(frame);
+
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { size(); seed(); }, 180);
+    });
+
+    /* Stop drawing once the hero scrolls away. */
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && raf === null) {
+            fill = gold();
+            raf = requestAnimationFrame(frame);
+          } else if (!e.isIntersecting && raf !== null) {
+            cancelAnimationFrame(raf);
+            raf = null;
+          }
+        });
+      }, { threshold: 0 }).observe(canvas);
+    }
+
+    /* Re-read the accent when the theme flips. */
+    if (toggle) toggle.addEventListener("click", function () {
+      setTimeout(function () { fill = gold(); }, 30);
+    });
+  }
+})();
+
+</script>

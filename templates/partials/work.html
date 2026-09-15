@@ -1,0 +1,71 @@
+<section class="section" id="work" style="background:var(--ground-deep)">
+  <div class="wrap">
+
+    <div class="work-head">
+      <div class="section-head reveal">
+        <p class="eyebrow">Our work</p>
+        <h2>What the mission has looked like so far.</h2>
+        <p class="lede">Every outreach, study and milestone since 2023 — filter by the
+          part of the ministry you want to see.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter our work by category">
+        {% for f in work_filters %}
+        <button class="filter" type="button" data-filter="{{ f }}"
+                aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ f }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="work-grid">
+      {% for item in work %}
+      <button class="glass work-card pane-{{ item.pane }} reveal"
+              type="button"
+              data-cat="{{ item.cat }}"
+              data-title="{{ item.title }}"
+              data-place="{{ item.place }}"
+              data-date="{{ item.date }}"
+              data-blurb="{{ item.blurb }}"
+              data-pane-class="pane-{{ item.pane }}"
+              {% if item.image %}data-img="{{ url_for('static', filename='img/' ~ item.image) }}"{% endif %}
+              data-delay="{{ loop.index0 * 45 }}"
+              aria-label="{{ item.title }} — open details">
+        <span class="work-tile{% if item.image %} has-photo{% endif %}" aria-hidden="true">
+          {% if item.image %}<img src="{{ url_for('static', filename='img/' ~ item.image) }}"
+                                  alt="{{ item.title }}" loading="lazy" decoding="async"
+                                  width="320" height="640">{% endif %}
+        </span>
+        <span class="work-shade" aria-hidden="true"></span>
+        <span class="work-plus" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span>
+        <span class="work-body">
+          <span class="work-cat">{{ item.cat }}</span>
+          <h3>{{ item.title }}</h3>
+          <span class="work-meta">
+            <span>{{ item.place }}</span>
+            <span class="dot"></span>
+            <span>{{ item.date }}</span>
+          </span>
+        </span>
+      </button>
+      {% endfor %}
+    </div>
+
+    <p class="work-note">Photographs are JOLM's own, carried over from the existing site.</p>
+
+  </div>
+</section>
+
+<div class="lightbox pane-gold" role="dialog" aria-modal="true" aria-label="Event details" aria-hidden="true">
+  <div class="glass lightbox-panel">
+    <button class="lightbox-close" type="button" aria-label="Close">
+      <svg width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="glass-in" style="display:flex;flex-direction:column;gap:.85rem">
+      <img class="lb-img" src="" alt="" hidden>
+      <p class="work-cat lb-cat"></p>
+      <h3></h3>
+      <p class="lb-meta" style="font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)"></p>
+      <p class="lb-blurb body-text" style="max-width:none"></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ org.name }} — {{ org.tagline }}{% endblock %}</title>
+<meta name="description" content="{{ org.legal }} is a Filipino non-profit in Sto. Tomas, Batangas, carrying the love of Jesus Christ through Bible study, kids ministry, medical assistance, wheelchair sponsorship, jail ministry and community outreach.">
+<meta name="theme-color" content="#0B0D1A">
+
+<meta property="og:title" content="{{ org.name }}">
+<meta property="og:description" content="{{ org.tagline }}">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">{% endblock %}
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+{# ---- Icon sprite ------------------------------------------------------- #}
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="1.5"/><path d="M5 15V4.5A1.5 1.5 0 0 1 6.5 3H15"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v5h-5"/></symbol>
+
+    {# Mission marks — drawn as light through glass, not literal clip art #}
+    <symbol id="i-cross" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 4v24M8 12h16"/><path d="M16 4 L23 11 M16 4 L9 11" opacity=".45"/></symbol>
+    <symbol id="i-book" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 7h9a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H4z"/><path d="M28 7h-9a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h9z"/><path d="M16 12v4" opacity=".5"/></symbol>
+    <symbol id="i-child" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="9" r="4"/><path d="M8 27c0-5 3.6-8 8-8s8 3 8 8"/><path d="M16 2.5v2M11 4l1 1.7M21 4l-1 1.7" opacity=".5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 27S4 20 4 12.5A6.5 6.5 0 0 1 16 9a6.5 6.5 0 0 1 12 3.5C28 20 16 27 16 27z"/><path d="M16 14v6M13 17h6" opacity=".55"/></symbol>
+    <symbol id="i-wheel" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="24" r="6"/><path d="M13 24V9M13 13h7M13 18h5l4 8h5"/><circle cx="13" cy="5" r="2.5"/></symbol>
+    <symbol id="i-key" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="16" r="6"/><path d="M16 16h13M25 16v5M21 16v3.5"/></symbol>
+    <symbol id="i-hands" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 27V15a3 3 0 0 1 6 0M26 27V15a3 3 0 0 0-6 0"/><path d="M12 27v-9a4 4 0 0 1 8 0v9"/><path d="M16 12V4M13 7l3-3 3 3" opacity=".55"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="4" y="7" width="24" height="21" rx="2"/><path d="M4 14h24M11 4v6M21 4v6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="7" width="26" height="18" rx="4"/><path d="M14 12.5l6 3.5-6 3.5z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 3l2.8 9.2L28 16l-9.2 3.2L16 29l-2.8-9.8L4 16l9.2-3.8z"/></symbol>
+
+    {# Socials #}
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.4-5.2a2.7 2.7 0 0 0-1.9-1.9C19 4.5 12 4.5 12 4.5s-7 0-8.7.4a2.7 2.7 0 0 0-1.9 1.9C1 8.5 1 12 1 12s0 3.5.4 5.2a2.7 2.7 0 0 0 1.9 1.9c1.7.4 8.7.4 8.7.4s7 0 8.7-.4a2.7 2.7 0 0 0 1.9-1.9C23 15.5 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.1l-6.8 7.7L21.8 21h-6.2l-4.9-6.3L5.1 21H2l7.3-8.3L2.3 3h6.3l4.4 5.8zM16.4 19.2h1.7L7.7 4.7H5.9z"/></symbol>
+  </defs>
+</svg>
+
+{% include "partials/header.html" %}
+
+<main id="main">
+  {% block content %}{% endblock %}
+</main>
+
+{% include "partials/footer.html" %}
+
+<div class="toast" role="status" aria-live="polite"></div>
+
+{% block scripts %}<script src="{{ url_for('static', filename='js/site.js') }}"></script>{% endblock %}
+</body>
+</html>

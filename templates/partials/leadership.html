@@ -1,0 +1,66 @@
+<section class="section" id="leadership">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <p class="eyebrow">Leadership</p>
+      <h2>Board of Directors &amp; Members</h2>
+      <p class="lede">The officers who founded and run JOLM, together with the
+        church and overseers who stand behind the work.</p>
+    </div>
+
+    {# ---- Officers ---- #}
+    <div class="board-grid">
+      {% for person in board %}
+      <article class="glass board-card pane-gold reveal" data-delay="{{ loop.index0 * 60 }}">
+        <div class="glass-in">
+          <span class="portrait">
+            <img src="{{ url_for('static', filename='img/' ~ person.image) }}"
+                 alt="{{ person.name }}, {{ person.role }}"
+                 loading="lazy" decoding="async" width="192" height="192">
+          </span>
+          <span class="board-who">
+            <span class="board-name">{{ person.name }}</span>
+            <span class="board-role">{{ person.role }}</span>
+          </span>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    {# ---- Pastor + overseers ---- #}
+    <div class="lead-grid" style="margin-top:clamp(1rem,.6rem + 1.4vw,1.75rem)">
+
+      <article class="glass pastor-card pane-gold reveal">
+        <div class="glass-in" style="display:flex;flex-direction:column;gap:1.1rem">
+          <span class="portrait portrait--lg">
+            <img src="{{ url_for('static', filename='img/' ~ pastor.image) }}"
+                 alt="{{ pastor.name }}" loading="lazy" decoding="async"
+                 width="192" height="192">
+          </span>
+          <blockquote class="pastor-quote" style="margin:0">&ldquo;{{ pastor.verse }}&rdquo;</blockquote>
+          <span class="verse-ref" style="margin-top:0">{{ pastor.verse_ref }}</span>
+          <div class="pastor-who">
+            <span class="pastor-name">{{ pastor.name }}</span>
+            <span class="pastor-role">{{ pastor.role }}</span>
+            <span class="pastor-church">{{ pastor.church }}</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="glass overseers pane-azure reveal" data-delay="90">
+        <div class="glass-in">
+          <p class="eyebrow" style="color:var(--azure)">Overseers</p>
+          <ul class="overseer-list">
+            {% for o in overseers %}
+            <li>
+              <span class="monogram" aria-hidden="true">{{ o.name.split()|map('first')|join|upper }}</span>
+              <span class="overseer-name"><span class="overseer-note">{{ o.note }}</span> {{ o.name }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
