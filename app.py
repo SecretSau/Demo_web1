@@ -9,33 +9,50 @@ Run locally:
 
 from __future__ import annotations
 
+import copy
 import datetime as _dt
-import random
-import string
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, render_template
 
 import content
 
 app = Flask(__name__)
 
+# Fields an account must carry before it may be shown to a visitor.
+_REQUIRED = ("bank_name", "account_name", "account_number", "currency")
 
-def _site_context() -> dict:
-    """Everything every page needs. Injected into all templates."""
-    return {
-        "org": content.ORG,
-        "nav": content.NAV,
-        "socials": content.SOCIALS,
-        "scripture": content.SCRIPTURE,
-        "credentials": content.CREDENTIALS,
-        "youtube_channel": content.YOUTUBE_CHANNEL,
-        "year": _dt.date.today().year,
-    }
+
+def publishable_accounts() -> list[dict]:
+    """Withhold banking details unless a human has confirmed them.
+
+    An account is only rendered when `verified` is True *and* every required
+    field is filled in. Anything short of that is blanked out, so half-entered
+    details can never reach a donor by accident.
+    """
+    accounts = copy.deepcopy(content.GIVE_ACCOUNTS)
+    for account in accounts:
+        ready = account.get("verified") is True and all(
+            isinstance(account.get(field), str) and account[field].strip()
+            for field in _REQUIRED
+        )
+        if account.get("kind") == "international":
+            ready = ready and bool(account.get("swift_code", "").strip())
+        account["ready"] = ready
+        if not ready:
+            for field in (*_REQUIRED, "swift_code", "bank_address", "reference"):
+                account[field] = ""
+    return accounts
 
 
 @app.context_processor
 def inject_site():
-    return _site_context()
+    return {
+        "org": content.ORG,
+        "nav": content.NAV,
+        "youtube": content.YOUTUBE,
+        "facebook": content.FACEBOOK,
+        "year": _dt.date.today().year,
+    }
 
 
 @app.route("/")
@@ -43,38 +60,52 @@ def index():
     return render_template(
         "index.html",
         hero=content.HERO,
-        impact=content.IMPACT,
         mission=content.MISSION,
         vision=content.VISION,
-        ministries=content.MINISTRIES,
-        work=content.WORK,
-        work_filters=content.WORK_FILTERS,
-        give=content.GIVE,
-        give_amounts=content.GIVE_AMOUNTS,
-        give_accounts=content.GIVE_ACCOUNTS,
-        give_steps=content.GIVE_STEPS,
-        join=content.JOIN,
+        values=content.VALUES,
+        pathways=content.PATHWAYS,
+        event_filters=content.EVENT_FILTERS,
+        events=content.EVENTS,
         videos=content.VIDEOS,
-        board=content.BOARD,
-        overseers=content.OVERSEERS,
+        give=content.GIVE,
+        accounts=publishable_accounts(),
+        faq=content.GIVE_FAQ,
+        leaders=content.LEADERS,
         pastor=content.PASTOR,
+        overseers=content.OVERSEERS,
+        connect=content.CONNECT,
     )
 
 
-@app.route("/api/reference-code")
-def reference_code():
-    """
-    Issue a short code the donor pastes into their bank transfer notes, so the
-    treasurer can reconcile an incoming transfer against a specific donor.
+@app.route("/healthz")
+def health():
+    return {"status": "ok"}
 
-    Prototype only: codes are generated, not persisted. For production, write
-    these to a table with a timestamp and the intended amount, and expose them
-    to the treasurer in a simple admin view.
-    """
-    stamp = _dt.datetime.now().strftime("%y%m")
-    tail = "".join(random.choices(string.ascii_uppercase + string.digits, k=4))
-    return jsonify({"code": f"JOLM-{stamp}-{tail}"})
+
+@app.errorhandler(404)
+def not_found(_error):
+    return render_template("404.html"), 404
+
+
+@app.after_request
+def security_headers(response):
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = (
+        "camera=(), microphone=(), geolocation=(), payment=()"
+    )
+    # frame-src admits the YouTube no-cookie player, and only once a visitor
+    # has pressed play — nothing is loaded from YouTube before that.
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; img-src 'self' data:; style-src 'self'; "
+        "font-src 'self'; script-src 'self'; connect-src 'self'; "
+        "frame-src https://www.youtube-nocookie.com; "
+        "object-src 'none'; base-uri 'self'; frame-ancestors 'none'; "
+        "form-action 'self'"
+    )
+    return response
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    import os
+    app.run(debug=True, port=int(os.environ.get("PORT", "5000")))

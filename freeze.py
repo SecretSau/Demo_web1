@@ -5,12 +5,14 @@ Render the Flask site to a static build for client preview and static hosting.
 
 Writes into docs/:
 
-  index.html     The complete page, CSS and JS inlined, image paths rewritten
-                 to ./img/. Deploy docs/ to any static host as-is.
-  artifact.html  The same page without the <!doctype>/<html>/<head>/<body>
-                 wrapper, for hosts that supply their own skeleton.
+  index.html     The page, CSS and JS inlined, asset paths rewritten to ./img/,
+                 ./fonts/ and ./favicon.svg.
+  404.html       The not-found page, same treatment.
+  artifact.html  index.html without the <!doctype>/<html>/<head>/<body> wrapper,
+                 for hosts that supply their own skeleton.
   .nojekyll      Stops GitHub Pages running the output through Jekyll.
-  img/           Copied from static/img/.
+  _headers       Security headers and image caching for Cloudflare Pages.
+  img/, fonts/   Copied from static/.
 
 The folder is called docs/ because GitHub Pages will serve a site from the repo
 root or from /docs and nothing else — so this name is what lets Pages publish
@@ -30,14 +32,14 @@ from app import app
 
 ROOT = pathlib.Path(__file__).parent
 BUILD = ROOT / "docs"          # see module docstring — the name is a Pages rule
-IMG_SRC = ROOT / "static" / "img"
+STATIC = ROOT / "static"
 
 LINK_RE = re.compile(r'\s*<link rel="stylesheet" href="/static/css/site\.css">')
-SCRIPT_RE = re.compile(r'\s*<script src="/static/js/site\.js"></script>')
+SCRIPT_RE = re.compile(r'\s*<script src="/static/js/site\.js" defer></script>')
 
 # Photographs are cached for a day rather than a year: the filenames are stable
 # (caingin-1.webp and so on), so a year-long immutable cache would strand a
-# replaced photo in visitors' browsers. Re-tune once filenames carry a hash.
+# replaced photo in visitors' browsers. Fonts never change, so they get a year.
 HEADERS = """\
 /*
   X-Content-Type-Options: nosniff
@@ -46,46 +48,48 @@ HEADERS = """\
 
 /img/*
   Cache-Control: public, max-age=86400
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
 """
 
 
-def render() -> str:
+def render(path: str) -> str:
     with app.test_client() as client:
-        response = client.get("/")
-        if response.status_code != 200:
-            raise SystemExit(f"Render failed: HTTP {response.status_code}")
+        response = client.get(path)
+        if response.status_code not in (200, 404):
+            raise SystemExit(f"Render of {path} failed: HTTP {response.status_code}")
         return response.get_data(as_text=True)
 
 
 def inline(html: str) -> str:
-    """Replace the linked CSS/JS with their contents."""
-    css = (ROOT / "static" / "css" / "site.css").read_text(encoding="utf-8")
-    js = (ROOT / "static" / "js" / "site.js").read_text(encoding="utf-8")
+    """Replace the linked CSS/JS with their contents.
+
+    The stylesheet reaches its fonts with ../fonts/, which is correct while the
+    CSS sits in static/css/. Once inlined into a page at the build root, that
+    relative path has to become fonts/ or every @font-face silently fails.
+    """
+    css = (STATIC / "css" / "site.css").read_text(encoding="utf-8")
+    css = css.replace("../fonts/", "fonts/")
+    js = (STATIC / "js" / "site.js").read_text(encoding="utf-8")
 
     html, n_css = LINK_RE.subn("\n<style>\n" + css + "\n</style>", html)
-    html, n_js = SCRIPT_RE.subn("\n<script>\n" + js + "\n</script>", html)
+    # The 404 page deliberately ships no script, so a missing match is fine here.
+    html, _ = SCRIPT_RE.subn("\n<script>\n" + js + "\n</script>", html)
 
-    if not n_css or not n_js:
+    if not n_css:
         raise SystemExit(
-            "Could not find the stylesheet/script tags to inline. "
-            "Did the asset paths in base.html change?"
+            "Could not find the stylesheet tag to inline. "
+            "Did the asset paths in the templates change?"
         )
     return html
 
 
-def rewrite_images(html: str) -> str:
-    """/static/img/foo.webp -> img/foo.webp, so build/ is self-contained."""
-    return html.replace("/static/img/", "img/")
-
-
-def copy_images() -> int:
-    dest = BUILD / "img"
-    if dest.exists():
-        shutil.rmtree(dest)
-    if not IMG_SRC.exists():
-        return 0
-    shutil.copytree(IMG_SRC, dest)
-    return len(list(dest.iterdir()))
+def rewrite_assets(html: str) -> str:
+    """Point the page at assets sitting beside it, so build/ is self-contained."""
+    return (html
+            .replace("/static/img/", "img/")
+            .replace("/static/favicon.svg", "favicon.svg"))
 
 
 def to_fragment(html: str, title: str = "Jesus Oneness Love Mission") -> str:
@@ -101,40 +105,44 @@ def to_fragment(html: str, title: str = "Jesus Oneness Love Mission") -> str:
     if not head or not body:
         raise SystemExit("Unexpected document shape — no <head>/<body> found.")
 
-    keep = []
-    for tag in re.findall(r"<title>.*?</title>|<link[^>]*>|<style>.*?</style>",
-                          head.group(1), re.S):
-        # The host skeleton already supplies charset/viewport.
-        if 'rel="preconnect"' in tag or "fonts.googleapis" in tag or \
-           tag.startswith("<title") or tag.startswith("<style"):
-            keep.append(tag.strip())
-
+    keep = [tag.strip() for tag in
+            re.findall(r"<title>.*?</title>|<style>.*?</style>", head.group(1), re.S)]
     return "\n".join(keep) + "\n" + body.group(1).strip() + "\n"
+
+
+def copy_assets() -> tuple[int, int]:
+    counts = []
+    for name in ("img", "fonts"):
+        dest = BUILD / name
+        if dest.exists():
+            shutil.rmtree(dest)
+        shutil.copytree(STATIC / name, dest)
+        counts.append(len(list(dest.iterdir())))
+    shutil.copy(STATIC / "favicon.svg", BUILD / "favicon.svg")
+    return counts[0], counts[1]
 
 
 def main() -> None:
     BUILD.mkdir(exist_ok=True)
-    full = rewrite_images(inline(render()))
 
-    page = BUILD / "index.html"
-    page.write_text(full, encoding="utf-8")
-
-    fragment = BUILD / "artifact.html"
-    fragment.write_text(to_fragment(full), encoding="utf-8")
+    page = rewrite_assets(inline(render("/")))
+    (BUILD / "index.html").write_text(page, encoding="utf-8")
+    (BUILD / "404.html").write_text(
+        rewrite_assets(inline(render("/no-such-page"))), encoding="utf-8")
+    (BUILD / "artifact.html").write_text(to_fragment(page), encoding="utf-8")
 
     # Without this, GitHub Pages hands the output to Jekyll, which ignores
-    # files and folders beginning with an underscore. Harmless elsewhere, and
-    # it keeps Pages available as a fallback host.
+    # files and folders beginning with an underscore.
     (BUILD / ".nojekyll").write_text("", encoding="utf-8")
-
     # Cloudflare Pages / Netlify read this file from the output root.
     (BUILD / "_headers").write_text(HEADERS, encoding="utf-8")
 
-    n_img = copy_images()
+    n_img, n_fonts = copy_assets()
 
-    for path in (page, fragment):
-        print(f"  {path.relative_to(ROOT)}  ({path.stat().st_size / 1024:.0f} KB)")
-    print(f"  {BUILD.name}/img/  ({n_img} files)")
+    for name in ("index.html", "404.html", "artifact.html"):
+        size = (BUILD / name).stat().st_size / 1024
+        print(f"  docs/{name}  ({size:.0f} KB)")
+    print(f"  docs/img/  ({n_img} files)   docs/fonts/  ({n_fonts} files)")
 
 
 if __name__ == "__main__":

@@ -13,467 +13,364 @@ ORG = {
     "name": "Jesus Oneness Love Mission",
     "short": "JOLM",
     "legal": "Jesus Oneness Love Mission (JOLM) Inc.",
-    "tagline": "Transformation of the Mind, Body, and Soul.",
+    "tagline": "Faith made visible in love.",
     "address_lines": [
-        "PH3 BLK 9 LOT 8 Via Verde Subd.",
-        "San Vicente, Sto. Tomas, Batangas 4234",
+        "PH3 BLK 9 LOT 8, Via Verde Subdivision, San Vicente",
+        "Sto. Tomas, Batangas, Philippines 4234",
     ],
+    "location": "Sto. Tomas, Batangas, Philippines",
     "email": "hello@jesusonenesslovemission.com",  # PLACEHOLDER
-    "phone": "+63 900 000 0000",                   # PLACEHOLDER
     "founded": 2023,
     "copyright_year": 2026,
+    # While true, the page carries noindex and the giving section is labelled a
+    # preview. Flip to False on the day the real details go in.
+    "is_draft": True,
 }
 
-SOCIALS = [
-    {"label": "Facebook", "handle": "/jesusonenesslovemission", "url": "#", "icon": "facebook"},
-    {"label": "Instagram", "handle": "@jolm.inc", "url": "#", "icon": "instagram"},
-    {"label": "YouTube", "handle": "Jesus Oneness Love Mission",
-     "url": "https://www.youtube.com/channel/UC3sxLeCLK8hIf5qp5NFpSZw", "icon": "youtube"},
-    {"label": "X", "handle": "@jolm_inc", "url": "#", "icon": "x"},
-]
+YOUTUBE = "https://www.youtube.com/channel/UC3sxLeCLK8hIf5qp5NFpSZw"
+FACEBOOK = "https://www.facebook.com/profile.php?id=61550781354139"
 
 NAV = [
-    {"label": "Mission", "href": "#mission"},
-    {"label": "Ministries", "href": "#ministries"},
-    {"label": "Our Work", "href": "#work"},
+    {"label": "Our heart", "href": "#heart"},
+    {"label": "Our community", "href": "#events"},
     {"label": "Watch", "href": "#watch"},
-    {"label": "Leadership", "href": "#leadership"},
-    {"label": "Join Us", "href": "#join"},
-]
-
-# The two verses the current site leads with, kept verbatim.
-SCRIPTURE = [
-    {
-        "text": "But seek first his kingdom and his righteousness, "
-                "and all these things will be given to you as well.",
-        "ref": "Matthew 6:33",
-    },
-    {
-        "text": "But as for me and my house, we will serve the Lord.",
-        "ref": "Joshua 24:15",
-    },
+    {"label": "Connect", "href": "#connect"},
 ]
 
 HERO = {
-    "eyebrow": "Non-profit ministry · Sto. Tomas, Batangas",
-    "title_lines": ["Transformation of the", "Mind, Body", "and Soul."],
-    "lede": "A Filipino non-profit carrying the love of Jesus Christ to the "
-            "hungry, the sick, the imprisoned and the forgotten — one household "
-            "at a time.",
-    "primary_cta": {"label": "Support the mission", "href": "#give"},
-    "secondary_cta": {"label": "See our work", "href": "#work"},
+    "eyebrow": "Rooted in Christ. Moved by love.",
+    "title_lines": ["One faith.", "One mission.", "Boundless love."],
+    "intro": "Transformation of the mind, body, and soul.<br>Sharing the love of "
+             "Jesus with those in need.",
+    "image": "hero.jpg",
+    "image_alt": "Sunrise over a mountain valley, with a cross on a distant ridge",
+    "caption": "Love that reaches beyond",
+    "footnote": "Faith in our hearts. Love in our hands.",
+    "verse": "Let all your things<br>be done with charity.",
+    "verse_ref": "1 Corinthians 16:14 · KJV",
 }
 
-# PLACEHOLDER — swap for figures JOLM can actually stand behind.
-IMPACT = [
-    {"value": 1200, "suffix": "+", "label": "Meals served", "note": "Community feeding"},
-    {"value": 48, "suffix": "", "label": "Wheelchairs sponsored", "note": "Mobility program"},
-    {"value": 26, "suffix": "", "label": "Families rehoused", "note": "Caingin, Sta. Rosa"},
-    {"value": 140, "suffix": "+", "label": "Bible studies held", "note": "Since 2023"},
+MISSION = (
+    "Rooted in the Word of God and inspired by the life of Jesus Christ, we share "
+    "love, compassion, and unity. As a non-profit organization, we are committed "
+    "to making a positive difference in the lives of those in need in the "
+    "Philippines."
+)
+
+VISION = (
+    "Through the power of the Holy Spirit and the Word of God, we seek "
+    "transformation of mind, body, and soul. We share the love and kindness of "
+    "Jesus with all, offering support, hope, and dignity regardless of background "
+    "or circumstance."
+)
+
+# An acrostic on the organisation's own name.
+VALUES = [
+    {"word": "Jesus", "gloss": "Our center"},
+    {"word": "Oneness", "gloss": "Our fellowship"},
+    {"word": "Love", "gloss": "Our response"},
+    {"word": "Mission", "gloss": "Our calling"},
 ]
 
-MISSION = {
-    "eyebrow": "Our Mission",
-    "title": "Love, compassion and unity — shown, not just spoken.",
-    "body": "Our mission is rooted in the core teachings of the Word of God, "
-            "where love, compassion and unity are shown, inspired by the "
-            "teachings and life of our loving Lord Jesus Christ. We are a "
-            "dedicated non-profit organization committed to making a positive "
-            "impact on the lives of those in need in the Philippines.",
-}
-
-VISION = {
-    "eyebrow": "Our Vision",
-    "title": "Hope, dignity and a bright future for all.",
-    "body": "At Jesus Oneness Love Mission, we believe in the power of the Holy "
-            "Spirit by spreading the Word of God to transform mind, body and "
-            "soul. Our charity is driven by a singular purpose: to spread the "
-            "love and kindness of our Lord Jesus Christ to all, regardless of "
-            "their background or circumstances. We aim to provide support and "
-            "resources to the less fortunate, helping them find hope, dignity "
-            "and a bright future.",
-}
-
-# Derived from the event categories already on the live site.
-MINISTRIES = [
+PATHWAYS = [
     {
-        "slug": "bible-study",
-        "name": "Bible Study",
-        "pane": "gold",
-        "summary": "Weekly gatherings in homes and barangay halls, opening the "
-                   "Word together for youth, ushers and families.",
-        "meta": "Weekly · Sto. Tomas",
+        "icon": "✧",
+        "title": "Grow in faith",
+        "body": "Make space for prayer, Scripture, and a deeper relationship with Jesus.",
+        "summary": "Begin with prayer",
+        "detail": "Set aside a quiet moment. Give thanks, bring your needs to God, "
+                  "and pray for someone in your community.",
     },
     {
-        "slug": "kids",
-        "name": "Kids Ministry & DVBS",
-        "pane": "rose",
-        "summary": "Daily Vacation Bible School, thanksgiving parties and "
-                   "programs built so a child is treated as a beam of sunlight.",
-        "meta": "Seasonal · Ages 4–12",
+        "icon": "♡",
+        "title": "Walk together",
+        "body": "Build connections rooted in care, encouragement, and shared faith.",
+        "summary": "Make room for others",
+        "detail": "Reach out to someone who needs encouragement. Listen with "
+                  "patience and let them know they are remembered.",
     },
     {
-        "slug": "medical",
-        "name": "Medical Assistance",
-        "pane": "azure",
-        "summary": "Hospitalization support and medicine for families who would "
-                   "otherwise go without care.",
-        "meta": "On request · Batangas",
-    },
-    {
-        "slug": "wheelchair",
-        "name": "Wheelchair Sponsorship",
-        "pane": "gold",
-        "summary": "Mobility restored to neighbours living with disability, "
-                   "sponsored chair by chair.",
-        "meta": "Ongoing · Nationwide",
-    },
-    {
-        "slug": "jail",
-        "name": "Jail Ministry",
-        "pane": "azure",
-        "summary": "Visiting those inside, because the Lord remembers the "
-                   "prisoner as surely as the free.",
-        "meta": "Monthly · Local facilities",
-    },
-    {
-        "slug": "outreach",
-        "name": "Community Outreach",
-        "pane": "rose",
-        "summary": "Relief and rebuilding for homeless families, including our "
-                   "ongoing work in Caingin, Sta. Rosa, Laguna.",
-        "meta": "As needed · Luzon",
+        "icon": "↗",
+        "title": "Love in action",
+        "body": "Offer your time, your kindness, and your generosity to the needs around you.",
+        "summary": "Take a small step",
+        "detail": "Look for a practical way to help a neighbour. Small acts of care "
+                  "can open the door to lasting connection.",
     },
 ]
 
-WORK_FILTERS = ["All", "Outreach", "Kids", "Bible Study", "Ministry", "Milestones"]
+# ---------------------------------------------------------------------------
+# Our community — photo albums.
+# Photographs are JOLM's own, carried over from the existing site.
+# ---------------------------------------------------------------------------
 
-# Photographs are JOLM's own, pulled from the existing site by fetch_assets.py.
-# Sources are 320x640 portrait, so the grid is built for portrait tiles.
-# Set `image` to None on any entry to fall back to a designed glass tile.
-WORK = [
+EVENT_FILTERS = [
+    {"key": "all", "label": "All moments"},
+    {"key": "fellowship", "label": "Fellowship"},
+    {"key": "celebration", "label": "Celebrations"},
+    {"key": "bible-school", "label": "Bible school"},
+    {"key": "outreach", "label": "Outreach"},
+    {"key": "ministry", "label": "Ministry"},
+    {"key": "milestones", "label": "Milestones"},
+]
+
+EVENTS = [
     {
-        "title": "Helping homeless families in Caingin",
-        "place": "Sta. Rosa, Laguna",
-        "date": "2023",
-        "cat": "Outreach",
-        "pane": "rose",
-        "image": "caingin-1.webp",
-        "blurb": "Our largest relief effort to date — food, shelter materials "
-                 "and prayer brought to families living without a roof.",
+        "id": "bible-study",
+        "category": "fellowship",
+        "label": "Fellowship",
+        "title": "Together in the Word",
+        "description": "Weekly gatherings in homes and barangay halls, opening "
+                       "Scripture together.",
+        "photos": [
+            {"file": "bible-study-1.jpg", "alt": "Children and families gathered for a JOLM Bible study"},
+            {"file": "bible-study-2.jpg", "alt": "Community members listening together during Bible study"},
+            {"file": "bible-study-3.jpg", "alt": "A Bible study gathering at the mission"},
+            {"file": "bible-1.webp", "alt": "A Bible study session held in a member's home"},
+            {"file": "bible-2.webp", "alt": "Bible study with the youth ushers"},
+        ],
     },
     {
-        "title": "JOLM Kids Thanksgiving Party",
-        "place": "Sto. Tomas, Batangas",
-        "date": "2024",
-        "cat": "Kids",
-        "pane": "gold",
-        "image": "kids-1.webp",
-        "blurb": "A full day of games, a hot meal and the gospel, for children "
-                 "who rarely get a party of their own.",
+        "id": "anniversary",
+        "category": "celebration",
+        "label": "Our first anniversary",
+        "title": "A year of grace",
+        "description": "Celebrating our first year as a mission family, with praise "
+                       "and worship.",
+        "photos": [
+            {"file": "anniversary-1.jpg", "alt": "The mission family gathered for its first anniversary celebration"},
+            {"file": "anniversary-2.jpg", "alt": "A volunteer with children at the anniversary celebration"},
+            {"file": "anniversary-3.jpg", "alt": "JOLM members gathered at the anniversary event"},
+        ],
     },
     {
-        "title": "Medical assistance & hospitalization",
-        "place": "Batangas",
-        "date": "2024",
-        "cat": "Outreach",
-        "pane": "azure",
-        "image": "medical-1.webp",
-        "blurb": "Bills covered and medicine delivered for families facing a "
-                 "sudden hospital stay.",
+        "id": "thanksgiving",
+        "category": "celebration",
+        "label": "Thanksgiving",
+        "title": "Hearts full of thanks",
+        "description": "A day of games, a hot meal and the gospel, for children who "
+                       "rarely get a party of their own.",
+        "photos": [
+            {"file": "thanksgiving-1.jpg", "alt": "A child holding gifts at the Thanksgiving celebration"},
+            {"file": "thanksgiving-2.jpg", "alt": "A young participant with gifts at Thanksgiving"},
+            {"file": "thanksgiving-3.jpg", "alt": "Thanksgiving decorations at the celebration"},
+            {"file": "kids-1.webp", "alt": "Children gathered at the JOLM Kids Thanksgiving party"},
+        ],
     },
     {
-        "title": "Guard Your Heart Bible Study",
-        "place": "Sto. Tomas, Batangas",
-        "date": "August 2024",
-        "cat": "Bible Study",
-        "pane": "gold",
-        "image": "bible-1.webp",
-        "blurb": "A season of teaching on Proverbs 4:23, held across homes in "
-                 "the barangay.",
+        "id": "bible-school",
+        "category": "bible-school",
+        "label": "Daily Vacation Bible School",
+        "title": "Little hearts. Growing faith.",
+        "description": "Learning, creating and growing together across three days.",
+        "photos": [
+            {"file": "bible-school-1.jpg", "alt": "Day 1: children listening to teachers at Vacation Bible School"},
+            {"file": "bible-school-2.jpg", "alt": "Day 1: members of the Vacation Bible School community"},
+            {"file": "bible-school-3.jpg", "alt": "Day 2: children working on Bible school activities"},
+            {"file": "bible-school-4.jpg", "alt": "Day 3: a volunteer arranging learning materials"},
+            {"file": "kids-2.webp", "alt": "Children taking part in a Vacation Bible School session"},
+            {"file": "kids-launch.webp", "alt": "The programme flow for the JOLM Kids Ministry launch"},
+        ],
     },
     {
-        "title": "Wheelchair sponsorship",
-        "place": "Ongoing",
-        "date": "2024",
-        "cat": "Ministry",
-        "pane": "azure",
-        "image": "wheelchair-1.webp",
-        "blurb": "Each chair is matched to a named neighbour and handed over in "
-                 "person by the board.",
+        "id": "caingin",
+        "category": "outreach",
+        "label": "Caingin, Sta. Rosa",
+        "title": "A roof and a welcome",
+        "description": "Food, shelter materials and prayer brought to families "
+                       "living without a roof in Caingin, Sta. Rosa, Laguna.",
+        "photos": [
+            {"file": "caingin-1.webp", "alt": "JOLM volunteers with homeless families in Caingin, Sta. Rosa"},
+            {"file": "caingin-2.webp", "alt": "Relief goods being handed to families in Caingin"},
+        ],
     },
     {
-        "title": "Jail Ministry",
-        "place": "Local facilities",
-        "date": "2024",
-        "cat": "Ministry",
-        "pane": "rose",
-        "image": "jail-1.webp",
-        "blurb": "Monthly visits, worship and counselling inside.",
+        "id": "medical",
+        "category": "outreach",
+        "label": "Medical assistance",
+        "title": "Sitting with the sick",
+        "description": "Hospital bills covered and medicine delivered for families "
+                       "facing a sudden stay.",
+        "photos": [
+            {"file": "medical-1.webp", "alt": "A JOLM member visiting a patient in hospital"},
+            {"file": "medical-2.webp", "alt": "Medical assistance being delivered to a family"},
+        ],
     },
     {
-        "title": "JOLM Kids Ministry launch",
-        "place": "Sto. Tomas, Batangas",
-        "date": "2024",
-        "cat": "Kids",
-        "pane": "rose",
-        "image": "kids-launch.webp",
-        "blurb": "The programme flow for our children's ministry, launched with "
-                 "the local church.",
+        "id": "wheelchair",
+        "category": "ministry",
+        "label": "Wheelchair sponsorship",
+        "title": "Mobility restored",
+        "description": "Each chair is matched to a named neighbour and handed over "
+                       "in person by the board.",
+        "photos": [
+            {"file": "wheelchair-1.webp", "alt": "A sponsored wheelchair being presented to its recipient"},
+            {"file": "wheelchair-2.webp", "alt": "A JOLM board member handing over a wheelchair"},
+        ],
     },
     {
-        "title": "SEC registration completed",
-        "place": "Republic of the Philippines",
-        "date": "2024",
-        "cat": "Milestones",
-        "pane": "azure",
-        "image": "sec.webp",
-        "blurb": "JOLM formally incorporated as a non-stock, non-profit "
-                 "organization.",
+        "id": "jail",
+        "category": "ministry",
+        "label": "Jail ministry",
+        "title": "Remembering the prisoner",
+        "description": "Monthly visits, worship and counselling inside local "
+                       "facilities.",
+        "photos": [
+            {"file": "jail-1.webp", "alt": "JOLM members during a jail ministry visit"},
+        ],
     },
     {
-        "title": "Sto. Tomas Municipal Hall accreditation",
-        "place": "Sto. Tomas, Batangas",
-        "date": "2024",
-        "cat": "Milestones",
-        "pane": "gold",
-        "image": "accreditation.webp",
-        "blurb": "Recognised by the local government as an accredited "
-                 "civil-society partner.",
+        "id": "milestones",
+        "category": "milestones",
+        "label": "Registration & accreditation",
+        "title": "Standing on record",
+        "description": "Incorporated with the SEC, registered with the BIR, and "
+                       "accredited by the Sto. Tomas local government.",
+        "photos": [
+            {"file": "sec.webp", "alt": "JOLM Securities and Exchange Commission registration document"},
+            {"file": "bir.webp", "alt": "JOLM Bureau of Internal Revenue registration document"},
+            {"file": "accreditation.webp", "alt": "JOLM accreditation at the Sto. Tomas Municipal Hall"},
+        ],
+    },
+]
+
+# ---------------------------------------------------------------------------
+# Watch. Click-to-play: no request reaches YouTube until a visitor presses play,
+# and the embed uses the no-cookie host.
+# ---------------------------------------------------------------------------
+
+VIDEOS = [
+    {
+        "id": "bRZFedDGoSc",
+        "kind": "Trailer",
+        "title": "Our 1st Anniversary Celebration",
+        "blurb": "One year of ministry, marked with praise, worship and the launch "
+                 "of our music team.",
+        "poster": "video-anniversary.jpg",
+        "poster_alt": "Title card for the JOLM first anniversary celebration video",
     },
     {
-        "title": "Rebuilding after the rain",
-        "place": "Caingin, Sta. Rosa, Laguna",
-        "date": "2023",
-        "cat": "Outreach",
-        "pane": "rose",
-        "image": "caingin-2.webp",
-        "blurb": "Returning to the same families with materials to rebuild, not "
-                 "just relief to get through the week.",
-    },
-    {
-        "title": "Bible Study with Youth Ushers",
-        "place": "Sto. Tomas, Batangas",
-        "date": "2024",
-        "cat": "Bible Study",
-        "pane": "gold",
-        "image": "bible-2.webp",
-        "blurb": "Teaching the young people who serve every week — so those who "
-                 "usher also get fed.",
-    },
-    {
-        "title": "Daily Vacation Bible School",
-        "place": "Three-day programme",
-        "date": "2024",
-        "cat": "Kids",
-        "pane": "gold",
-        "image": "kids-2.webp",
-        "blurb": "Three days of teaching, music and play — with a recap "
-                 "published for parents each evening.",
-    },
-    {
-        "title": "A chair handed over in person",
-        "place": "Batangas",
-        "date": "2024",
-        "cat": "Ministry",
-        "pane": "azure",
-        "image": "wheelchair-2.webp",
-        "blurb": "Mobility restored to a neighbour living with disability, "
-                 "delivered by the board themselves.",
-    },
-    {
-        "title": "Hospital visitation",
-        "place": "Batangas",
-        "date": "2024",
-        "cat": "Outreach",
-        "pane": "azure",
-        "image": "medical-2.webp",
-        "blurb": "Sitting with patients and their families through the long "
-                 "days of a hospital stay.",
-    },
-    {
-        "title": "BIR registration",
-        "place": "Republic of the Philippines",
-        "date": "2024",
-        "cat": "Milestones",
-        "pane": "gold",
-        "image": "bir.webp",
-        "blurb": "Registered with the Bureau of Internal Revenue, so official "
-                 "receipts can be issued for every gift.",
+        "id": "DqaSYclxCFk",
+        "kind": "Trailer",
+        "title": "Thanksgiving Celebration",
+        "blurb": "Giving thanks together with the families and children the mission "
+                 "has walked alongside this year.",
+        "poster": "video-thanksgiving.jpg",
+        "poster_alt": "Title card for the JOLM Thanksgiving celebration video",
     },
 ]
 
 # ---------------------------------------------------------------------------
 # Giving. Bank transfer only — no payment gateway, by the client's instruction.
-# EVERY account detail below is PLACEHOLDER and must be replaced with JOLM's
-# real treasury accounts before launch.
+#
+# Account details are withheld by app.py unless `verified` is True AND every
+# required field is filled in. That makes it impossible to ship half-entered
+# banking data by accident: set `verified` to True only once a JOLM officer has
+# confirmed the numbers.
 # ---------------------------------------------------------------------------
 
 GIVE = {
-    "eyebrow": "Support Our Mission",
-    "title": "Give directly. Every peso goes to the work.",
-    "body": "JOLM receives gifts by bank transfer and e-wallet only — there is "
-            "no processing fee and no middleman taking a cut. Pick an amount, "
-            "copy the details, and send your proof of transfer so our treasurer "
-            "can acknowledge it.",
-    "note": "JOLM Inc. is a registered non-stock, non-profit organization. "
-            "Official receipts are issued for every gift on request.",
+    "eyebrow": "04 / Generosity with purpose",
+    "title_lines": ["Let your love", "go further."],
+    "body": "Giving is a personal expression of faith and love. Support the "
+            "mission through a direct bank transfer.",
+    "note": "Give directly through your banking app",
+    "verse": "Every man according as he purposeth in his heart, so let him give.",
+    "verse_ref": "2 Corinthians 9:7 · KJV",
 }
 
-# `impact` copy is PLACEHOLDER — JOLM should supply real unit costs.
-GIVE_AMOUNTS = [
-    {"amount": 500, "impact": "Feeds a family of five for two days."},
-    {"amount": 1000, "impact": "Covers one week of medicine for a patient in our care."},
-    {"amount": 2500, "impact": "Sends one child through the full Vacation Bible School."},
-    {"amount": 5000, "impact": "Sponsors one wheelchair, handed over in person."},
-]
-
-# PLACEHOLDER accounts.
 GIVE_ACCOUNTS = [
     {
-        "id": "bdo",
-        "kind": "Bank transfer",
-        "bank": "BDO Unibank",
-        "pane": "gold",
-        "account_name": "Jesus Oneness Love Mission Inc.",
-        "account_number": "0000 1234 5678",
-        "extra_label": "Swift code",
-        "extra_value": "BNORPHMM",
+        "id": "local",
+        "kind": "local",
+        "label": "Philippine bank transfer",
+        "description": "Give through your local bank, at your own pace.",
+        "tag": "Within the Philippines",
+        "verified": False,      # PLACEHOLDER — set True only with real details
+        "bank_name": "",
+        "account_name": "",
+        "account_number": "",
+        "currency": "",
+        "reference": "",
+        "swift_code": "",
+        "bank_address": "",
     },
     {
-        "id": "bpi",
-        "kind": "Bank transfer",
-        "bank": "Bank of the Philippine Islands",
-        "pane": "azure",
-        "account_name": "Jesus Oneness Love Mission Inc.",
-        "account_number": "0000 9876 5432",
-        "extra_label": "Swift code",
-        "extra_value": "BOPIPHMM",
-    },
-    {
-        "id": "gcash",
-        "kind": "E-wallet",
-        "bank": "GCash",
-        "pane": "rose",
-        "account_name": "Jesus Oneness Love Mission Inc.",
-        "account_number": "0917 000 0000",
-        "extra_label": "Account name shown as",
-        "extra_value": "JE**S O****SS L**E M****ON",
+        "id": "international",
+        "kind": "international",
+        "label": "Give from overseas",
+        "description": "Let your generosity reach across borders.",
+        "tag": "Across the world",
+        "verified": False,      # PLACEHOLDER — set True only with real details
+        "bank_name": "",
+        "account_name": "",
+        "account_number": "",
+        "currency": "",
+        "reference": "",
+        "swift_code": "",
+        "bank_address": "",
     },
 ]
 
-GIVE_STEPS = [
+GIVE_FAQ = [
     {
-        "n": 1,
-        "title": "Choose your gift",
-        "body": "Pick an amount, or enter your own. We will show you what it "
-                "covers on the ground.",
+        "q": "How does a bank transfer work?",
+        "a": "Once the mission's verified account details are available, open a "
+             "donation card, copy the account information, and make the transfer "
+             "through your own bank. This website does not process payments.",
     },
     {
-        "n": 2,
-        "title": "Transfer with your reference code",
-        "body": "Copy the account details and paste your code into the notes or "
-                "message field of the transfer.",
+        "q": "Can I give from another country?",
+        "a": "Use the overseas card when verified international transfer "
+             "instructions are available. Your bank can explain supported "
+             "currencies, transfer fees, and the information it requires.",
     },
     {
-        "n": 3,
-        "title": "Send your proof",
-        "body": "Message the screenshot to our Facebook page or email the "
-                "treasurer. We acknowledge every gift within 48 hours.",
-    },
-]
-
-JOIN = [
-    {
-        "kind": "Calendar",
-        "title": "Come to what's next",
-        "body": "Bible studies, outreaches and kids' programs — our year, open "
-                "for you to join.",
-        "cta": "Get the calendar",
-        "href": "#",
-        "pane": "gold",
+        "q": "Will this page confirm my donation?",
+        "a": "No. Copying or downloading account information does not send money. "
+             "Your bank confirms the transfer. Keep your bank's receipt for your "
+             "records.",
     },
     {
-        "kind": "YouTube",
-        "title": "Watch the ministry",
-        "body": "Anniversary services, DVBS recaps and praise nights, posted as "
-                "they happen.",
-        "cta": "Subscribe on YouTube",
-        "href": "#",
-        "pane": "rose",
-    },
-    {
-        "kind": "Volunteer",
-        "title": "Serve with us",
-        "body": "Drivers, cooks, teachers, musicians and prayer warriors — there "
-                "is a place for you.",
-        "cta": "Tell us you're in",
-        "href": "#",
-        "pane": "azure",
+        "q": "Are these real bank details?",
+        "a": "Not yet. The donation cards currently show generic examples. They "
+             "demonstrate the transfer process and cannot be used to send money.",
     },
 ]
 
-# Officers of the corporation. Names and portraits both come from the existing
-# site, where each officer's name is carried in the photo's filename.
-BOARD = [
-    {"name": "Cynthia J. Mendoza", "role": "President", "image": "board-president.webp"},
-    {"name": "Arlene G. Jose", "role": "Vice President", "image": "board-vp.webp"},
-    {"name": "Dolores J. Ocampo", "role": "Corporate Secretary", "image": "board-secretary.webp"},
-    {"name": "Rogelio P. Mendoza", "role": "Treasurer", "image": "board-treasurer.webp"},
-    {"name": "Rodel E. Reyes", "role": "Auditor", "image": "board-auditor.webp"},
-]
+# ---------------------------------------------------------------------------
+# The people. Officer names and portraits both come from the existing site,
+# where each officer's name is carried in the photo's filename.
+# ---------------------------------------------------------------------------
 
-# A separate group on the existing site — not officers.
-OVERSEERS = [
-    {"name": "Maggieh Maxfield", "note": "Mr. and Mrs."},
-    {"name": "Deborah Phillips", "note": "Mr. and Mrs."},
-    {"name": "Rosemarie Abrigo", "note": "Mr. and Mrs."},
-    {"name": "Jenny Ancheta", "note": "Ms."},
-    {"name": "Rose Fadrow", "note": "Mrs."},
-    {"name": "Clare Liebe", "note": "Mrs."},
+LEADERS = [
+    {"name": "Cynthia J. Mendoza", "role": "President", "photo": "board-president.webp"},
+    {"name": "Arlene G. Jose", "role": "Vice President", "photo": "board-vp.webp"},
+    {"name": "Dolores J. Ocampo", "role": "Corporate Secretary", "photo": "board-secretary.webp"},
+    {"name": "Rogelio P. Mendoza", "role": "Treasurer", "photo": "board-treasurer.webp"},
+    {"name": "Rodel E. Reyes", "role": "Auditor", "photo": "board-auditor.webp"},
 ]
 
 PASTOR = {
     "name": "Ptr. Nilo Buiser",
     "role": "Head Pastor · Local Overseer",
     "church": "Assembly of the Redeemed Church",
-    "image": "pastor.webp",
-    # Scripture, not a personal quote — JOLM has not published one, and an
-    # invented quote attributed to a real pastor would be a fabrication.
-    "verse": "Give thanks to the Lord, for He is good; His love endures forever.",
-    "verse_ref": "Psalm 107:1",
+    "photo": "pastor.webp",
 }
 
-# ---------------------------------------------------------------------------
-# Video. Click-to-play: no YouTube request is made until a visitor presses play,
-# and the embed uses the no-cookie host.
-# ---------------------------------------------------------------------------
-
-YOUTUBE_CHANNEL = "https://www.youtube.com/channel/UC3sxLeCLK8hIf5qp5NFpSZw"
-
-VIDEOS = [
-    {
-        "id": "bRZFedDGoSc",
-        "title": "Our 1st Anniversary Celebration",
-        "kind": "Trailer",
-        "blurb": "One year of ministry, marked with praise, worship and the "
-                 "launch of our music team.",
-        "poster": "video-anniversary.jpg",
-        "pane": "gold",
-    },
-    {
-        "id": "DqaSYclxCFk",
-        "title": "Thanksgiving Celebration",
-        "kind": "Trailer",
-        "blurb": "Giving thanks together with the families and children the "
-                 "mission has walked alongside this year.",
-        "poster": "video-thanksgiving.jpg",
-        "pane": "rose",
-    },
+# A separate group on the existing site — supporters, not officers.
+OVERSEERS = [
+    "Mr. and Mrs. Maggieh Maxfield",
+    "Mr. and Mrs. Deborah Phillips",
+    "Mr. and Mrs. Rosemarie Abrigo",
+    "Ms. Jenny Ancheta",
+    "Mrs. Rose Fadrow",
+    "Mrs. Clare Liebe",
 ]
 
-CREDENTIALS = [
-    {"label": "SEC registered", "detail": "Non-stock, non-profit"},
-    {"label": "BIR registered", "detail": "Official receipts issued"},
-    {"label": "LGU accredited", "detail": "Sto. Tomas, Batangas"},
-]
+CONNECT = {
+    "eyebrow": "There is a place for you",
+    "title_lines": ["The next chapter", "begins with love."],
+    "body": "Follow our community, revisit our celebrations, and stay connected to "
+            "the mission.",
+}
