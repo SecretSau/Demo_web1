@@ -35,6 +35,19 @@ IMG_SRC = ROOT / "static" / "img"
 LINK_RE = re.compile(r'\s*<link rel="stylesheet" href="/static/css/site\.css">')
 SCRIPT_RE = re.compile(r'\s*<script src="/static/js/site\.js"></script>')
 
+# Photographs are cached for a day rather than a year: the filenames are stable
+# (caingin-1.webp and so on), so a year-long immutable cache would strand a
+# replaced photo in visitors' browsers. Re-tune once filenames carry a hash.
+HEADERS = """\
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+
+/img/*
+  Cache-Control: public, max-age=86400
+"""
+
 
 def render() -> str:
     with app.test_client() as client:
@@ -109,9 +122,13 @@ def main() -> None:
     fragment = BUILD / "artifact.html"
     fragment.write_text(to_fragment(full), encoding="utf-8")
 
-    # Without this, Pages hands the output to Jekyll, which ignores files and
-    # folders beginning with an underscore.
+    # Without this, GitHub Pages hands the output to Jekyll, which ignores
+    # files and folders beginning with an underscore. Harmless elsewhere, and
+    # it keeps Pages available as a fallback host.
     (BUILD / ".nojekyll").write_text("", encoding="utf-8")
+
+    # Cloudflare Pages / Netlify read this file from the output root.
+    (BUILD / "_headers").write_text(HEADERS, encoding="utf-8")
 
     n_img = copy_images()
 
